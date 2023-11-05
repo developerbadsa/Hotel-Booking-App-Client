@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import { userContext } from "../../Provider/AuthProvider/AuthProvider";
+import { useContext } from "react";
 
 
 const Register = () => {
-
+const {createUser} = useContext(userContext)
 
 
       const handleSubmit = (e) => {
@@ -36,7 +38,26 @@ const Register = () => {
                   })
                   return
             } else {
-                 console.log('valied')
+                  createUser(email, password)
+                  .then(() => {
+                        // updateProfile(auth.currentUser, {
+                        //       displayName: name, photoURL: profile_pic
+                        // })
+
+                        Swal.fire(
+                              'Congratulations!',
+                              'Successfuly you have created a user!',
+                              'success'
+                        )
+
+                  })
+                  .catch(err => {
+                        Swal.fire({
+                              icon: 'error',
+                              title: 'Oops...',
+                              text: err.message
+                        })
+                  })
             }
 
       }

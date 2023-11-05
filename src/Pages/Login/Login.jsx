@@ -1,24 +1,48 @@
-import { useRef } from "react";
+import { useContext, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { userContext } from "../../Provider/AuthProvider/AuthProvider";
 
 const Login = () => {
-
+      const {logInUser} = useContext(userContext)
       const navigatePage = useNavigate()
       const formRef = useRef(null)
 
       const handleLogin = (e) => {
             e.preventDefault()
+
+
             const email = e.target.email.value;
             const password = e.target.password.value;
+            logInUser(email, password)
+                  .then(() => {
 
+                        formRef.current.reset();
+                        navigatePage('/');
+
+                        Swal.fire(
+                              'Congratulations!',
+                              'Successfuly logged in with Email and Password',
+                              'success'
+                        )
+
+                  })
+                  .catch(err => {
+
+
+                        Swal.fire({
+                              icon: 'error',
+                              title: 'Oops...',
+                              text: err.message
+                        });
+                  })
 
 
       }
 
 
       return (
-           <div className="flex items-center container mx-auto min-h-[80vh] rounded py-14">
+            <div className="flex items-center container mx-auto min-h-[80vh] rounded py-14">
                   <div className="flex h-full w-full flex-col-reverse lg:flex-row-reverse justify-between ">
                         <div className="flex flex-col items-center justify-center w-full py-8 lg:py-0 lg:w-[50%] bg-white text-black rounded-r-lg">
                               <h1 className="text-5xl font-bold">Register</h1>
