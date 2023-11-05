@@ -1,7 +1,8 @@
 import { Helmet } from "react-helmet";
 import { HelmetProvider } from "react-helmet-async";
-import { FaArrowAltCircleDown } from "react-icons/fa";
+import { FaArrowAltCircleDown, FaUser } from "react-icons/fa";
 import Special_Offers from "./Sections/Special_Offers";
+import TestimonialCarousel from "./Sections/Testimonial_carousel";
 
 
 const Home = () => {
@@ -35,6 +36,8 @@ const Home = () => {
                               </div>
                         </div>
                         <Special_Offers></Special_Offers>
+                        <TestimonialCarousel></TestimonialCarousel>
+
 
 
 
