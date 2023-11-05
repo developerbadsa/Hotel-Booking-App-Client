@@ -37,7 +37,7 @@ const Menus = () => {
                   {true && <>
                         <li className="flex items-center justify-center">
                               <NavLink
-                                    to="/login"
+                                    to="/register"
                                     className={({ isActive, isPending }) =>
                                           isPending ? "bg-red-400" : isActive ? " text-green-500" : ""
                                     }
@@ -47,7 +47,7 @@ const Menus = () => {
                         </li>
                         <li className="flex items-center justify-center">
                               <NavLink
-                                    to="/register"
+                                    to="/login"
                                     className={({ isActive, isPending }) =>
                                           isPending ? "bg-red-400" : isActive ? " text-green-500" : ""
                                     }

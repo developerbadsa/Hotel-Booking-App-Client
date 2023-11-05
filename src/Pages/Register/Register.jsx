@@ -49,14 +49,14 @@ const Register = () => {
 
             <div className="flex items-center container mx-auto min-h-[90vh] rounded py-12">
                   <div className="flex h-full w-full flex-col-reverse lg:flex-row justify-between transition-opacity">
-                        <div className="flex flex-col items-center justify-center w-full lg:w-[50%] bg-white text-black lg:rounded-l-lg py-8">
-                              <h1 className="text-5xl font-bold">Sign In</h1>
+                        <div className="flex flex-col items-center justify-center w-full lg:w-[35%] bg-white text-black lg:rounded-l-lg py-8">
+                              <h1 className="text-5xl font-bold">Log In</h1>
                               <p className="py-6">Do you have already created acount?</p>
-                              <Link to='/signin'><button className="btn hover:bg-amber-800 bg-amber-800 text-white">Sign In Now</button></Link>
+                              <Link to='/login'><button className="btn hover:bg-amber-800 bg-amber-800 text-white">Login Now</button></Link>
                         </div>
                         <div className=" flex-1 bg-amber-800 py-8 px-10 lg:rounded-r-lg">
                               <div>
-                                    <h3 className="text-center font-extrabold text-4xl text-red-50 my-8">Sign Up</h3>
+                                    <h3 className="text-center font-extrabold text-4xl text-red-50 my-8">Register</h3>
                               </div>
                               <form onSubmit={handleSubmit} className="">
                                     <div className="form-control mb-6">
@@ -70,12 +70,9 @@ const Register = () => {
                                     </div>
                                     <div className="form-control">
                                           <input type="Password" name="password" placeholder="password" className="input input-bordered" required />
-                                          <label className="label ">
-                                                <a href="#" className="label-text-alt link link-hover text-white">Forgot password?</a>
-                                          </label>
                                     </div>
                                     <div className="form-control mt-6">
-                                          <button type="submit" className="btn font-bold">Sign Up</button>
+                                          <button type="submit" className="btn font-bold">Register</button>
                                     </div>
                               </form>
                         </div>
