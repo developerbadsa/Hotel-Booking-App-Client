@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet";
 import { HelmetProvider } from "react-helmet-async";
-import { FaArrowAltCircleDown, FaArrowCircleDown } from "react-icons/fa";
+import { FaArrowAltCircleDown } from "react-icons/fa";
+import Special_Offers from "./Sections/Special_Offers";
 
 
 const Home = () => {
@@ -33,6 +34,7 @@ const Home = () => {
                                     </div>
                               </div>
                         </div>
+                        <Special_Offers></Special_Offers>
 
 
 
