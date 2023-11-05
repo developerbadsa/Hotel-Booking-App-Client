@@ -1,0 +1,331 @@
+[
+      {
+        "RoomID": 1,
+        "RoomTitle": "Luxury Ocean View Suite",
+        "RoomDescription": "Indulge in the epitome of luxury with our exquisite Luxury Ocean View Suite. Offering a breathtaking view of the sparkling sea, this spacious 500 sq. ft room is the perfect escape for those seeking tranquility and comfort. Unwind in style with a well-appointed king-sized bed, a private balcony, and a modern en-suite bathroom. Enjoy the serenity of the ocean waves and golden sunsets. Special offer: Get 20% off for a week-long stay in this captivating sanctuary.",
+        "PricePerNight": 250.00,
+        "RoomSize": "500 sq. ft",
+        "Availability": "available",
+        "RoomImages": [
+          "https://i.ibb.co/RY203Dn/download-4.jpg",
+          "https://i.ibb.co/9hQf4SB/download-3.jpg",
+          "https://i.ibb.co/k4cNCHW/luxury-classic-modern-bedroom-suite-hotel.jpg",
+          "https://i.ibb.co/6m2py3P/ancient-chinise-room.jpg"
+        ],
+        "SpecialOffers": "20% off for a week-long stay",
+        "Reviews": [
+          {
+            "UserID": 101,
+            "Rating": 4.5,
+            "ReviewText": "A fantastic room with a beautiful view. Highly recommended!"
+          },
+          {
+            "UserID": 102,
+            "Rating": 5.0,
+            "ReviewText": "This room exceeded my expectations. The price is a steal for what you get!"
+          }
+        ]
+      },
+      {
+        "RoomID": 2,
+        "RoomTitle": "Cozy Garden Retreat",
+        "RoomDescription": "Escape to our Cozy Garden Retreat, nestled in a lush garden setting. This charming 400 sq. ft room offers a peaceful getaway from the city's hustle and bustle. Relax in a comfortable queen-sized bed and savor the tranquility of the surrounding greenery. Special offer: Book for 3 nights and receive a complimentary spa treatment for two.",
+        "PricePerNight": 150.00,
+        "RoomSize": "400 sq. ft",
+        "Availability": "available",
+        "RoomImages": [
+          "https://i.ibb.co/Gxqk8Kw/restaurant-interior.jpg",
+          "https://i.ibb.co/k2zknjm/luxury-pool-villa-spectacular-contemporary-design-digital-art-real-estate-home-house-property-ge.jpg",
+          "https://i.ibb.co/Pr5CNBJ/spa-salon-with-beach-view.jpg",
+          "https://i.ibb.co/W33xnc1/swimming-pool.jpg"
+        ],
+        "SpecialOffers": "Complimentary spa treatment for a 3-night stay"
+      },
+      {
+        "RoomID": 3,
+        "RoomTitle": "Urban Chic Studio",
+        "RoomDescription": "Experience city living at its best with our Urban Chic Studio. This stylish 350 sq. ft studio is designed for modern travelers who seek both style and convenience. The room features a comfortable queen-sized bed, a fully equipped kitchenette, and a sleek en-suite bathroom. Immerse yourself in the vibrant cityscape and cultural attractions. Special offer: Stay for 5 nights and receive a discount on your next visit.",
+        "PricePerNight": 120.00,
+        "RoomSize": "350 sq. ft",
+        "Availability": "available",
+        "RoomImages": [
+          "https://i.ibb.co/xDPV2DL/luxury-bedroom-suite-resort-high-rise-hotel-with-working-table.jpg",
+          "https://i.ibb.co/PY6xS3s/luxury-bedroom-suite-resort-high-rise-hotel-with-working-table-105762-1783.jpg",
+          "https://i.ibb.co/Fm2q8hB/vacation-couple-on-beach-near-260nw-2183226477.jpg",
+          "https://i.ibb.co/SKYBX9Q/young-woman-traveler-opening-curtains-260nw-2159847275.jpg"
+        ],
+        "SpecialOffers": "Discount on your next visit for a 5-night stay"
+      },
+      {
+            "RoomID": 4,
+            "RoomTitle": "Seaside Villa Retreat",
+            "RoomDescription": "Experience the ultimate seaside escape with our Seaside Villa Retreat. This luxurious 700 sq. ft villa offers stunning ocean views and direct access to a private beach. Relax in a plush king-sized bed, enjoy a spacious living area, and savor gourmet meals prepared in your private kitchen. Special offer: Complimentary breakfast and water sports activities included.",
+            "PricePerNight": 350.00,
+            "RoomSize": "700 sq. ft",
+            "Availability": "available",
+            "RoomImages": [
+              "https://i.ibb.co/2kNTLbd/portrait-tourist-woman-standing-nearly-260nw-1494850982.jpg",
+              "https://i.ibb.co/bmyGMxn/opened-door-hotel-room-key-260nw-383952526.jpg",
+              "https://i.ibb.co/VQSDPxp/blog2.jpg",
+              "https://i.ibb.co/K7PkvJD/parallax10.jpg"
+            ],
+            "SpecialOffers": "Complimentary breakfast and water sports activities included"
+          },
+          {
+            "RoomID": 5,
+            "RoomTitle": "Mountain View Cabin",
+            "RoomDescription": "Escape to our cozy Mountain View Cabin, nestled in the heart of the serene mountains. This 600 sq. ft cabin offers rustic charm with a comfortable queen-sized bed, a stone fireplace, and a private outdoor hot tub. Enjoy scenic hikes and stargazing at night. Special offer: Stay 4 nights and receive a free guided mountain tour.",
+            "PricePerNight": 180.00,
+            "RoomSize": "600 sq. ft",
+            "Availability": "available",
+            "RoomImages": [
+              "https://i.ibb.co/fkz0zzF/room1-1024x664.jpg",
+              "https://i.ibb.co/D1LFGTr/room2-1024x664.jpg",
+              "https://i.ibb.co/C5Gysj7/room4-1024x664.jpg",
+              "https://i.ibb.co/BsWg8yj/room6-1024x664.jpg"
+            ],
+            "SpecialOffers": "Free guided mountain tour for a 4-night stay"
+            
+          },
+          {
+            "RoomID": 6,
+            "RoomTitle": "Cityscape Penthouse",
+            "RoomDescription": "Live in luxury at our Cityscape Penthouse, a spacious 1,000 sq. ft penthouse with panoramic city views. Relax in a king-sized bed, a designer living room, and a private terrace. Explore the city's vibrant nightlife and cultural scene. Special offer: Complimentary rooftop dinner and wine tasting included.",
+            "PricePerNight": 400.00,
+            "RoomSize": "1,000 sq. ft",
+            "Availability": "available",
+            "RoomImages": [
+              "https://i.ibb.co/559rjJG/download-2.jpg",
+              "https://i.ibb.co/9yQnzvR/istockphoto-1448506100-170667a.webp",
+              "https://i.ibb.co/CWYfGrN/images-1.jpg",
+              "https://i.ibb.co/RY203Dn/download-4.jpg"
+            ],
+            "SpecialOffers": "Complimentary rooftop dinner and wine tasting included"
+          },
+          {
+            "RoomID": 7,
+            "RoomTitle": "Rustic Countryside Cottage",
+            "RoomDescription": "Experience the charm of our Rustic Countryside Cottage. This 550 sq. ft cottage provides a peaceful retreat with a comfortable double bed, a cozy fireplace, and a private garden. Enjoy birdwatching and leisurely walks in the countryside. Special offer: Complimentary breakfast for a 2-night stay.",
+            "PricePerNight": 120.00,
+            "RoomSize": "550 sq. ft",
+            "Availability": "available",
+            "RoomImages": [
+              "https://i.ibb.co/xDPV2DL/luxury-bedroom-suite-resort-high-rise-hotel-with-working-table.jpg",
+              "https://i.ibb.co/PY6xS3s/luxury-bedroom-suite-resort-high-rise-hotel-with-working-table-105762-1783.jpg",
+              "https://i.ibb.co/Fm2q8hB/vacation-couple-on-beach-near-260nw-2183226477.jpg",
+              "https://i.ibb.co/SKYBX9Q/young-woman-traveler-opening-curtains-260nw-2159847275.jpg"
+            ],
+            "SpecialOffers": "Complimentary breakfast for a 2-night stay",
+            "Reviews": []
+          },
+          {
+            "RoomID": 8,
+            "RoomTitle": "Lakeview Cabin Retreat",
+            "RoomDescription": "Unwind in our charming Lakeview Cabin Retreat, nestled beside a tranquil lake. This 600 sq. ft cabin offers a serene escape with a queen-sized bed, a lakeside deck, and a cozy fireplace. Enjoy fishing and paddle boating on the lake. Special offer: Free boat rental for a 3-night stay.",
+            "PricePerNight": 160.00,
+            "RoomSize": "600 sq. ft",
+            "Availability": "available",
+            "RoomImages": [
+              "https://i.ibb.co/RY203Dn/download-4.jpg",
+              "https://i.ibb.co/9hQf4SB/download-3.jpg",
+              "https://i.ibb.co/k4cNCHW/luxury-classic-modern-bedroom-suite-hotel.jpg",
+              "https://i.ibb.co/6m2py3P/ancient-chinise-room.jpg"
+            ],
+            "SpecialOffers": "Free boat rental for a 3-night stay",
+            "Reviews": []
+          },
+          {
+            "RoomID": 9,
+            "RoomTitle": "Eco-Friendly Jungle Lodge",
+            "RoomDescription": "Immerse yourself in nature with our Eco-Friendly Jungle Lodge. This eco-conscious 800 sq. ft lodge offers a unique rainforest experience with a king-sized bed, a treehouse-inspired balcony, and wildlife views. Explore the jungle's wonders and eco-tours. Special offer: Complimentary guided nature walks and eco-tours included.",
+            "PricePerNight": 180.00,
+            "RoomSize": "800 sq. ft",
+            "Availability": "available",
+            "RoomImages": [
+              "https://i.ibb.co/Gxqk8Kw/restaurant-interior.jpg",
+              "https://i.ibb.co/k2zknjm/luxury-pool-villa-spectacular-contemporary-design-digital-art-real-estate-home-house-property-ge.jpg",
+              "https://i.ibb.co/Pr5CNBJ/spa-salon-with-beach-view.jpg",
+              "https://i.ibb.co/W33xnc1/swimming-pool.jpg"
+            ],
+            "SpecialOffers": "Complimentary guided nature walks and eco-tours included",
+            "Reviews": []
+          },
+          {
+            "RoomID": 10,
+            "RoomTitle": "Historic City Mansion",
+            "RoomDescription": "Step back in time with our Historic City Mansion. This grand 1,200 sq. ft mansion offers a luxurious experience with a king-sized bed, antique furnishings, and a private garden. Explore the city's historic sites and architecture. Special offer: Complimentary city walking tour and museum passes included.",
+            "PricePerNight": 300.00,
+            "RoomSize": "1,200 sq. ft",
+            "Availability": "available",
+            "RoomImages": [
+              "https://i.ibb.co/xDPV2DL/luxury-bedroom-suite-resort-high-rise-hotel-with-working-table.jpg",
+              "https://i.ibb.co/PY6xS3s/luxury-bedroom-suite-resort-high-rise-hotel-with-working-table-105762-1783.jpg",
+              "https://i.ibb.co/Fm2q8hB/vacation-couple-on-beach-near-260nw-2183226477.jpg",
+              "https://i.ibb.co/SKYBX9Q/young-woman-traveler-opening-curtains-260nw-2159847275.jpg"
+            ],
+            "SpecialOffers": "Complimentary city walking tour and museum passes included",
+            "Reviews": []
+          },
+          {
+            "RoomID": 11,
+            "RoomTitle": "Mountain Lodge Retreat",
+            "RoomDescription": "Unplug and relax at our Mountain Lodge Retreat. This 700 sq. ft lodge offers a cozy mountain experience with a queen-sized bed, a wood-burning fireplace, and a private balcony. Enjoy hiking, skiing, and snow-capped mountain views. Special offer: Free ski pass and cozy fireplace setup for a 4-night stay.",
+            "PricePerNight": 200.00,
+            "RoomSize": "700 sq. ft",
+            "Availability": "available",
+            "RoomImages": [
+              "https://i.ibb.co/559rjJG/download-2.jpg",
+              "https://i.ibb.co/9yQnzvR/istockphoto-1448506100-170667a.webp",
+              "https://i.ibb.co/CWYfGrN/images-1.jpg",
+              "https://i.ibb.co/RY203Dn/download-4.jpg"
+            ],
+            "SpecialOffers": "Free ski pass and cozy fireplace setup for a 4-night stay",
+            "Reviews": []
+          },
+          {
+            "RoomID": 12,
+            "RoomTitle": "Beachfront Paradise Villa",
+            "RoomDescription": "Escape to our Beachfront Paradise Villa, a 900 sq. ft haven offering direct beach access and stunning ocean views. Enjoy a king-sized bed, a private deck, and a hammock for ultimate relaxation. Special offer: Complimentary beachfront yoga sessions and sunset cocktails included.",
+            "PricePerNight": 280.00,
+            "RoomSize": "900 sq. ft",
+            "Availability": "available",
+            "RoomImages": [
+              "https://i.ibb.co/RY203Dn/download-4.jpg",
+              "https://i.ibb.co/9hQf4SB/download-3.jpg",
+              "https://i.ibb.co/k4cNCHW/luxury-classic-modern-bedroom-suite-hotel.jpg",
+              "https://i.ibb.co/6m2py3P/ancient-chinise-room.jpg"
+            ],
+            "SpecialOffers": "Complimentary beachfront yoga sessions and sunset cocktails included",
+            "Reviews": []
+          },
+          {
+            "RoomID": 13,
+            "RoomTitle": "Lakeside Cottage Getaway",
+            "RoomDescription": "Experience the tranquility of our Lakeside Cottage Getaway. This 550 sq. ft cottage offers a serene lakeside retreat with a queen-sized bed, a private dock, and fishing opportunities. Enjoy peaceful days by the lake and starlit nights. Special offer: Free canoe rental for a 3-night stay.",
+            "PricePerNight": 150.00,
+            "RoomSize": "550 sq. ft",
+            "Availability": "available",
+            "RoomImages": [
+              "https://i.ibb.co/fkz0zzF/room1-1024x664.jpg",
+              "https://i.ibb.co/D1LFGTr/room2-1024x664.jpg",
+              "https://i.ibb.co/C5Gysj7/room4-1024x664.jpg",
+              "https://i.ibb.co/BsWg8yj/room6-1024x664.jpg"
+            ],
+            "SpecialOffers": "Free canoe rental for a 3-night stay",
+            "Reviews": []
+          },
+          {
+            "RoomID": 14,
+            "RoomTitle": "Desert Oasis Retreat",
+            "RoomDescription": "Discover the beauty of the desert at our Desert Oasis Retreat. This 450 sq. ft oasis offers a peaceful escape with a queen-sized bed, a private courtyard, and desert views. Experience desert safaris and stargazing at night. Special offer: Complimentary desert safari and camel ride included.",
+            "PricePerNight": 170.00,
+            "RoomSize": "450 sq. ft",
+            "Availability": "available",
+            "RoomImages": [
+              "https://i.ibb.co/xDPV2DL/luxury-bedroom-suite-resort-high-rise-hotel-with-working-table.jpg",
+              "https://i.ibb.co/PY6xS3s/luxury-bedroom-suite-resort-high-rise-hotel-with-working-table-105762-1783.jpg",
+              "https://i.ibb.co/Fm2q8hB/vacation-couple-on-beach-near-260nw-2183226477.jpg",
+              "https://i.ibb.co/SKYBX9Q/young-woman-traveler-opening-curtains-260nw-2159847275.jpg"
+            ],
+            "SpecialOffers": "Complimentary desert safari and camel ride included",
+            "Reviews": []
+          },
+          {
+            "RoomID": 15,
+            "RoomTitle": "Historic Boutique Hotel",
+            "RoomDescription": "Step into the past with our Historic Boutique Hotel. This charming 800 sq. ft suite offers a historic ambiance with a king-sized bed, antique decor, and a view of historic landmarks. Explore the city's rich history and heritage. Special offer: Complimentary heritage tour and afternoon tea included.",
+            "PricePerNight": 250.00,
+            "RoomSize": "800 sq. ft",
+            "Availability": "available",
+            "RoomImages": [
+              "https://i.ibb.co/559rjJG/download-2.jpg",
+              "https://i.ibb.co/9yQnzvR/istockphoto-1448506100-170667a.webp",
+              "https://i.ibb.co/CWYfGrN/images-1.jpg",
+              "https://i.ibb.co/RY203Dn/download-4.jpg"
+            ],
+            "SpecialOffers": "Complimentary heritage tour and afternoon tea included",
+            "Reviews": []
+          },
+          {
+            "RoomID": 16,
+            "RoomTitle": "Ski Resort Chalet",
+            "RoomDescription": "Embrace the snowy slopes at our Ski Resort Chalet. This 800 sq. ft chalet offers a cozy retreat with a queen-sized bed, a fireplace, and ski-in/ski-out access. Enjoy skiing, snowboarding, and après-ski relaxation. Special offer: Free ski rental and hot cocoa for a 3-night stay.",
+            "PricePerNight": 220.00,
+            "RoomSize": "800 sq. ft",
+            "Availability": "available",
+            "RoomImages": [
+              "https://i.ibb.co/fkz0zzF/room1-1024x664.jpg",
+              "https://i.ibb.co/D1LFGTr/room2-1024x664.jpg",
+              "https://i.ibb.co/C5Gysj7/room4-1024x664.jpg",
+              "https://i.ibb.co/BsWg8yj/room6-1024x664.jpg"
+            ],
+            "SpecialOffers": "Free ski rental and hot cocoa for a 3-night stay",
+            "Reviews": []
+          },
+          {
+            "RoomID": 17,
+            "RoomTitle": "Ski Resort Chalet",
+            "RoomDescription": "Embrace the snowy slopes at our Ski Resort Chalet. This 800 sq. ft chalet offers a cozy retreat with a queen-sized bed, a fireplace, and ski-in/ski-out access. Enjoy skiing, snowboarding, and après-ski relaxation. Special offer: Free ski rental and hot cocoa for a 3-night stay.",
+            "PricePerNight":  280.00,
+            "RoomSize": "800 sq. ft",
+            "Availability": "available",
+            "RoomImages": [
+              "https://i.ibb.co/RY203Dn/download-4.jpg",
+              "https://i.ibb.co/D1LFGTr/room2-1024x664.jpg",
+              "https://i.ibb.co/C5Gysj7/room4-1024x664.jpg",
+              "https://i.ibb.co/BsWg8yj/room6-1024x664.jpg"
+            ],
+            "SpecialOffers": "Free ski rental and hot cocoa for a 3-night stay",
+            "Reviews": []
+          },
+          {
+            "RoomID": 18,
+            "RoomTitle": "Riverside Bungalow",
+            "RoomDescription": "Relax by the tranquil river in our Riverside Bungalow. This cozy 450 sq. ft bungalow offers a peaceful retreat with a queen-sized bed, a private riverside deck, and beautiful river views. Enjoy fishing and riverside barbecues. Special offer: Free fishing gear rental for a 2-night stay.",
+            "PricePerNight": 140.00,
+            "RoomSize": "450 sq. ft",
+            "Availability": "available",
+            "RoomImages": [
+              "https://i.ibb.co/xDPV2DL/luxury-bedroom-suite-resort-high-rise-hotel-with-working-table.jpg",
+              "https://i.ibb.co/PY6xS3s/luxury-bedroom-suite-resort-high-rise-hotel-with-working-table-105762-1783.jpg",
+              "https://i.ibb.co/Fm2q8hB/vacation-couple-on-beach-near-260nw-2183226477.jpg",
+              "https://i.ibb.co/SKYBX9Q/young-woman-traveler-opening-curtains-260nw-2159847275.jpg"
+            ],
+            "SpecialOffers": "Free fishing gear rental for a 2-night stay",
+            "Reviews": []
+          },
+          {
+            "RoomID": 19,
+            "RoomTitle": "Tropical Paradise Villa",
+            "RoomDescription": "Escape to our Tropical Paradise Villa, a luxurious 900 sq. ft villa surrounded by lush tropical gardens. Enjoy a king-sized bed, a private terrace, and a secluded paradise feel. Experience lush garden walks and outdoor dining. Special offer: Complimentary garden tour and tropical fruit tasting included.",
+            "PricePerNight": 320.00,
+            "RoomSize": "900 sq. ft",
+            "Availability": "available",
+            "RoomImages": [
+              "https://i.ibb.co/RY203Dn/download-4.jpg",
+              "https://i.ibb.co/9hQf4SB/download-3.jpg",
+              "https://i.ibb.co/k4cNCHW/luxury-classic-modern-bedroom-suite-hotel.jpg",
+              "https://i.ibb.co/6m2py3P/ancient-chinise-room.jpg"
+            ],
+            "SpecialOffers": "Complimentary garden tour and tropical fruit tasting included",
+            "Reviews": []
+          },
+          {
+            "RoomID": 20,
+            "RoomTitle": "Charming Countryside Inn",
+            "RoomDescription": "Experience the charm of the countryside at our Charming Countryside Inn. This 600 sq. ft suite offers a cozy escape with a queen-sized bed, country-style decor, and scenic countryside views. Enjoy hiking and exploring the rural surroundings. Special offer: Complimentary countryside tour and farm-to-table dining included.",
+            "PricePerNight": 160.00,
+            "RoomSize": "600 sq. ft",
+            "Availability": "available",
+            "RoomImages": [
+              "https://i.ibb.co/2kNTLbd/portrait-tourist-woman-standing-nearly-260nw-1494850982.jpg",
+              "https://i.ibb.co/bmyGMxn/opened-door-hotel-room-key-260nw-383952526.jpg",
+              "https://i.ibb.co/VQSDPxp/blog2.jpg",
+              "https://i.ibb.co/K7PkvJD/parallax10.jpg"
+            ],
+            "SpecialOffers": "Complimentary countryside tour and farm-to-table dining included",
+            "Reviews": []
+          }
+
+    ]
+    
