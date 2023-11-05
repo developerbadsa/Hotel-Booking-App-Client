@@ -1,12 +1,15 @@
-import { Outlet, createBrowserRouter } from "react-router-dom";
+import {  createBrowserRouter } from "react-router-dom";
 import Home from "../Pages/Home/Home";
 import My_Bookings from "../Pages/My_Bookings/My_Bookings";
 import Rooms from "../Pages/Rooms/Rooms";
+import MainlayOut from "../Layout/MainlayOut";
+import Login from "../Pages/Login/Login";
+import Register from "../Pages/Register/Register";
 
 const router = createBrowserRouter([
       {
             path: '/',
-            element: <Outlet></Outlet>,
+            element: <MainlayOut></MainlayOut>,
             children: [
                   {
                         path: '/',
@@ -20,6 +23,14 @@ const router = createBrowserRouter([
                   {
                         path: '/rooms',
                         element: <Rooms></Rooms>
+                  },
+                  {
+                        path: '/login',
+                        element: <Login></Login>
+                  },
+                  {
+                        path: '/register',
+                        element: <Register></Register>
                   }
             ]
       }
