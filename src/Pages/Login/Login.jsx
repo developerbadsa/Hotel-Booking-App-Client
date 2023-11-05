@@ -2,15 +2,16 @@ import { useContext, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { userContext } from "../../Provider/AuthProvider/AuthProvider";
+import { FaGoogle } from "react-icons/fa";
+import UseUser from "../../Hooks/UseUser";
 
 const Login = () => {
-      const {logInUser} = useContext(userContext)
+      const {logInUser, googlelogin} = UseUser()
       const navigatePage = useNavigate()
       const formRef = useRef(null)
 
       const handleLogin = (e) => {
             e.preventDefault()
-
 
             const email = e.target.email.value;
             const password = e.target.password.value;
@@ -40,6 +41,17 @@ const Login = () => {
 
       }
 
+      const handleGoogleSignIn = ()=>{
+            googlelogin()
+            .then(()=>{
+                  Swal.fire(
+                        'Congratulations!',
+                        'Successfuly logged in with Google',
+                        'success'
+                  )
+            })
+      }
+
 
       return (
             <div className="flex items-center container mx-auto min-h-[80vh] rounded py-14">
@@ -67,6 +79,7 @@ const Login = () => {
                                     <div className="form-control mt-6">
                                           <button type="submit" className="btn font-bold">Login</button>
                                     </div>
+                                    <div onClick={handleGoogleSignIn}  className="text-center p-6 flex justify-center gap-4 items-center font-bold cursor-pointer"><span className="text-white ml-3">Instant Login with Google</span><button type="button" className="btn btn-circle text-2xl text-center"> <FaGoogle></FaGoogle></button></div>
                               </form>
                         </div>
                   </div>

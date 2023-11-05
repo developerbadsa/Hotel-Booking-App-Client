@@ -76,7 +76,7 @@ const Menus = () => {
 
                   }
                    {
-                            true &&  <li className="flex items-center justify-center">
+                            user &&  <li className="flex items-center justify-center">
                                     <NavLink onClick={handleLogOut}
                                           className={({ isActive, isPending }) =>
                                                 isPending ? "bg-red-400" : isActive ? " " : ""
