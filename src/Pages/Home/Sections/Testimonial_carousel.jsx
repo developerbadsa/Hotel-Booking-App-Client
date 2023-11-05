@@ -64,7 +64,7 @@ function TestimonialCarousel() {
       };
 
       return (
-            <div className="w-full shadow-md my-18 shadow-2xl flex gap-10">
+            <div className="w-full  my-18 shadow-2xl flex gap-10">
                   <div className="text-center shadow-sm">
                         <h1 className="text-4xl my-5 font-bold">Testimonials</h1>
                         <p className="text-lg my-6 mb-12">
