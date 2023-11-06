@@ -53,6 +53,7 @@ const Rooms = () => {
                               Gaming
                         </button>
                   </div>
+                  <h3 className="text-center my-12 text-2xl font-extrabold">Here All Available Rooms: {rooms.length}</h3>
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
                         {
                               rooms.map((room => <RoomCard key={room._id} room={room}></RoomCard>))
