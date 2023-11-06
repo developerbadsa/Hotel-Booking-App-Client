@@ -5,12 +5,15 @@ import StarRating from '../../Layout/Components/Rating/Rating';
 import { useEffect, useState } from 'react';
 import Test from '../Rooms/test';
 import Swal from 'sweetalert2';
+import axios, { Axios } from 'axios';
+import UseUser from '../../Hooks/UseUser';
 
 const Room_details = () => {
       const { title } = useParams()
       const [startDate, setStartDate] = useState(null)
       const [endDate, setEndDate] = useState(null)
       const [price, setPrice] = useState(0)
+      const {user} = UseUser();
       const BookingTimeDay = (new Date(endDate) - new Date(startDate)) / 86400000
       const date = new Date()
       const [modalOpen, setModalOpen] = useState(false);
@@ -34,20 +37,13 @@ const Room_details = () => {
 
 
 
-
-
       if (isPending) {
             return <Loading></Loading>
       }
-
-
-
-
-
-
-
-
       const { _id, RoomID, RoomTitle, RoomDescription, PricePerNight, RoomSize, Availability, RoomImages, SpecialOffers, Reviews } = booking_details;
+      const BookedData = [
+            {id:_id, BookingTimeDay, startDate, endDate, RoomID, RoomTitle, RoomDescription, PricePerNight, RoomSize, Availability, RoomImages, SpecialOffers, Reviews}
+      ]
 
 
       const handleBookButton = (e) => {
@@ -68,7 +64,14 @@ const Room_details = () => {
                         })
                   )
             }
-            { setModalOpen(true) }
+            setModalOpen(true)
+      }
+      const handleBookButtonFinal = (e)=>{
+            e.preventDefault()
+            axios.post(`http://localhost:5000/room_details/?email=${user?.email}`, BookedData)
+            .then(res=>console.log(res))
+            .catch(err=>console.log(err))
+
       }
 
 
@@ -253,8 +256,8 @@ const Room_details = () => {
                                                                               <tr className="bg-base-200 ">
                                                                                     <td className='xs'>{startDate}</td>
                                                                                     <td>{endDate}</td>
-                                                                                    <td>Quality Control Specialist</td>
-                                                                                    <td>Blue</td>
+                                                                                    <td>{BookingTimeDay}</td>
+                                                                                    <td className='font-bold'>${price}</td>
                                                                               </tr>
                                                                         </tbody>
                                                                   </table>
@@ -263,7 +266,7 @@ const Room_details = () => {
                                                                   <form method="dialog" className=' flex gap-8'>
                                                                         <button
                                                                               className="btn ml-4 bg-amber-800 text-white hover:bg-amber-800 "
-                                                                              onClick={handleBookButton}
+                                                                              onClick={handleBookButtonFinal}
                                                                         >
                                                                               Confirm Proccess Booking
                                                                         </button>
