@@ -13,22 +13,23 @@ const Room_details = () => {
       const [startDate, setStartDate] = useState(null)
       const [endDate, setEndDate] = useState(null)
       const [price, setPrice] = useState(0)
-      const {user} = UseUser();
+      const { user } = UseUser();
       const BookingTimeDay = (new Date(endDate) - new Date(startDate)) / 86400000
       const date = new Date()
+      const day = date.getDate().toString().padStart(2, '0'); 
+      const month = (date.getMonth() + 1).toString().padStart(2, '0'); 
+      const year = date.getFullYear();
+      const CreateBookingTime = `${day}/${month}/${year}`;
       const [modalOpen, setModalOpen] = useState(false);
       const url = `http://localhost:5000/room_details/${title}`
 
-
-
       const { data: booking_details, isPending, refetch } = useQuery({
-            queryKey: ['userBookings'],
+            queryKey: ['userBookings3'],
             queryFn: async () => {
                   const data = await fetch(url)
                   return await data.json();
             }
       })
-      //booking_details?.PricePerNight
       useEffect(() => {
             const BookingTime = BookingTimeDay > 0 && BookingTimeDay;
 
@@ -40,12 +41,8 @@ const Room_details = () => {
       if (isPending) {
             return <Loading></Loading>
       }
-      const { _id, RoomID, RoomTitle, RoomDescription, PricePerNight, RoomSize, Availability, RoomImages, SpecialOffers, Reviews } = booking_details;
-      const BookedData = [
-            {id:_id, BookingTimeDay, startDate, endDate, RoomID, RoomTitle, RoomDescription, PricePerNight, RoomSize, Availability, RoomImages, SpecialOffers, Reviews}
-      ]
-
-
+      const { RoomID, RoomTitle, RoomDescription, PricePerNight, RoomSize, Availability, RoomImages, SpecialOffers, Reviews } = booking_details;
+      const BookedData = { BookingTimeDay, startDate, endDate, RoomID, RoomTitle, RoomDescription, PricePerNight, Availability, RoomImages, CreateBookingTime }
       const handleBookButton = (e) => {
             e.preventDefault()
             if (!startDate || !endDate) {
@@ -66,11 +63,11 @@ const Room_details = () => {
             }
             setModalOpen(true)
       }
-      const handleBookButtonFinal = (e)=>{
+      const handleBookButtonFinal = (e) => {
             e.preventDefault()
             axios.post(`http://localhost:5000/room_details/?email=${user?.email}`, BookedData)
-            .then(res=>console.log(res))
-            .catch(err=>console.log(err))
+                  .then(res => console.log(res))
+                  .catch(err => console.log(err))
 
       }
 
