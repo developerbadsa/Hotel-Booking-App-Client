@@ -3,6 +3,8 @@ import { Link, useParams } from 'react-router-dom';
 import Loading from '../../Layout/Components/Loading_spinner/Loading';
 import StarRating from '../../Layout/Components/Rating/Rating';
 import { useEffect, useState } from 'react';
+import Test from '../Rooms/test';
+import Swal from 'sweetalert2';
 
 const Room_details = () => {
       const { title } = useParams()
@@ -11,6 +13,7 @@ const Room_details = () => {
       const [price, setPrice] = useState(0)
       const BookingTimeDay = (new Date(endDate) - new Date(startDate)) / 86400000
       const date = new Date()
+      const [modalOpen, setModalOpen] = useState(false);
       const url = `http://localhost:5000/room_details/${title}`
 
 
@@ -43,29 +46,34 @@ const Room_details = () => {
 
 
 
+
       const { _id, RoomID, RoomTitle, RoomDescription, PricePerNight, RoomSize, Availability, RoomImages, SpecialOffers, Reviews } = booking_details;
 
 
       const handleBookButton = (e) => {
             e.preventDefault()
-
-
             if (!startDate || !endDate) {
-                  return <Loading></Loading>
+                  return (
+                        Swal.fire({
+                              title: "Please Enter Booking and End Date",
+                              icon: "warning",
+                              confirmButtonText: "OK",
+                              cancelButtonText: "Cancel",
+                              showCancelButton: true,
+                              showCloseButton: true,
+                              customClass: {
+                                    confirmButton: 'custom-confirm-button',
+                                    cancelButton: 'custom-cancel-button',
+                              },
+                        })
+                  )
             }
-
+            { setModalOpen(true) }
       }
-
-
-
-      console.log(date.toISOString().slice(0, 10), startDate)
 
 
       const rat = Reviews?.length >= 1 ? Reviews?.reduce((accumulator, currentValue) => currentValue.Rating + accumulator, 0) / Reviews?.length : 0
       const averageRat = parseFloat(rat.toString()) !== 0 ? parseFloat(rat.toString()) : false
-
-
-
       return (
             <section className="py-10 font-poppins dark:bg-gray-800">
                   <div className="max-w-6xl px-4 mx-auto">
@@ -102,8 +110,6 @@ const Room_details = () => {
                                           </div>
                                     </div>
                               </div>
-
-
                               {/* details section  */}
                               <div className="w-full px-4 md:w-1/2">
                                     <div className="lg:pl-20">
@@ -218,17 +224,67 @@ const Room_details = () => {
                                                       </div>
                                                 </div>
                                           </div>
-                                          <div className="flex gap-4 mb-6">
+                                          <form className="flex gap-4 mb-6">
                                                 <Link onClick={handleBookButton}
                                                       className="w-full px-4 py-3 text-center text-white hover:text-white bg-amber-800 border border-transparent dark:border-gray-700 hover:border-amber-800  hover:bg-amber-800 dark:text-gray-400 dark:bg-gray-700 dark:hover:bg-gray-900 rounded-xl text-xl font-bold"
                                                 >
                                                       Buy now {price > 0 && price}
                                                 </Link>
-                                          </div>
+
+                                          </form>
+                                          {modalOpen && (
+                                                <dialog id="my_modal_4" className="modal h-screen bg-[#1d1407ca]" open>
+                                                      <div className="modal-box w-11/12 max-w-5xl lg:px-24 py-12">
+                                                            <h3 className="font-bold text-lg text-center">You are Going to Book <span className='text-red-600'>{RoomTitle}</span>. Room id is {RoomID}</h3>
+                                                            <p className="py-4 text-xs text-slate-500 leading-6">{RoomDescription}</p>
+                                                            <p className='font-bold'>Room Size: {RoomSize}</p>
+                                                            <div className="overflow-x-auto">
+                                                                  <table className="table table-xs my-8">
+                                                                        {/* head */}
+                                                                        <thead>
+                                                                              <tr className='md:text-lg text-black'>
+                                                                                    <th>Start Date</th>
+                                                                                    <th>End Date</th>
+                                                                                    <th>Days</th>
+                                                                                    <th>Total Price</th>
+                                                                              </tr>
+                                                                        </thead>
+                                                                        <tbody className='text-xs'>
+                                                                              <tr className="bg-base-200 ">
+                                                                                    <td className='xs'>{startDate}</td>
+                                                                                    <td>{endDate}</td>
+                                                                                    <td>Quality Control Specialist</td>
+                                                                                    <td>Blue</td>
+                                                                              </tr>
+                                                                        </tbody>
+                                                                  </table>
+                                                            </div>
+                                                            <div className="modal-action">
+                                                                  <form method="dialog" className=' flex gap-8'>
+                                                                        <button
+                                                                              className="btn ml-4 bg-amber-800 text-white hover:bg-amber-800 "
+                                                                              onClick={handleBookButton}
+                                                                        >
+                                                                              Confirm Proccess Booking
+                                                                        </button>
+                                                                        <button type='submit'
+                                                                              className="btn btn-warning"
+                                                                              onClick={() => setModalOpen(false)}
+                                                                        >
+                                                                              Cancel
+                                                                        </button>
+                                                                  </form>
+                                                            </div>
+                                                      </div>
+                                                </dialog>
+                                          )}
+
+
                                     </div>
                               </div>
                         </div>
                   </div>
+                  <Test></Test>
             </section>
 
       );

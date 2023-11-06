@@ -46,3 +46,13 @@
   color: white;
   transform: rotateY(180deg);
 }
+
+/* swal alert */
+.custom-confirm-button {
+  background-color: #007bff; 
+  color: #fff;
+}
+
+.custom-cancel-button {
+  background-color: #dc3545; 
+  color: #fff; }
