@@ -20,7 +20,7 @@ const Rooms = () => {
       })
 
       if (isPending) {
-            return <Loading></Loading>
+            return  <Loading></Loading>
       }
 
 
