@@ -1,8 +1,14 @@
 import { useQuery } from "@tanstack/react-query";
 import RoomCard from "./Sections/RoomCard";
+import {useState } from "react";
+import Loading from "../../Layout/Components/Loading_spinner/Loading";
 
 
 const Rooms = () => {
+      const [minPrice, setMinPrice] = useState('');
+      const [maxPrice, setMaxPrice] = useState('');
+      const [data, setData] = useState([])
+      const [show, setShow] = useState(true)
 
 
       const { data: rooms, isPending } = useQuery({
@@ -14,13 +20,38 @@ const Rooms = () => {
       })
 
       if (isPending) {
-            return
+            return <Loading></Loading>
       }
+
+
+      const handlePriceFilter = (e) => {
+            e.preventDefault()
+            const min = parseFloat(minPrice);
+            const max = parseFloat(maxPrice);
+
+            const filteredRooms = rooms.filter(room => {
+                  const roomPrice = parseFloat(room.PricePerNight);
+                  return (isNaN(min) || roomPrice >= min) && (isNaN(max) || roomPrice <= max);
+            });
+            setData(filteredRooms)
+            setShow(false)
+
+
+            // console.log(filteredRooms)
+
+      };
+
+      const RoomViewer = show ? rooms : data
+
+
+      console.log(RoomViewer)
+
 
 
 
       return (
             <div>
+
                   <div className="flex items-center justify-center py-4 md:py-8 flex-wrap">
                         <button
                               type="button"
@@ -32,31 +63,42 @@ const Rooms = () => {
                               type="button"
                               className="text-gray-900 border border-white hover:border-gray-200 dark:border-gray-900 dark:bg-gray-900 dark:hover:border-gray-700 bg-white focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-5 py-2.5 text-center mr-3 mb-3 dark:text-white dark:focus:ring-gray-800"
                         >
-                              Shoes
+                              View All Un Available
                         </button>
-                        <button
-                              type="button"
-                              className="text-gray-900 border border-white hover:border-gray-200 dark:border-gray-900 dark:bg-gray-900 dark:hover:border-gray-700 bg-white focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-5 py-2.5 text-center mr-3 mb-3 dark:text-white dark:focus:ring-gray-800"
-                        >
-                              Bags
-                        </button>
-                        <button
-                              type="button"
-                              className="text-gray-900 border border-white hover:border-gray-200 dark:border-gray-900 dark:bg-gray-900 dark:hover:border-gray-700 bg-white focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-5 py-2.5 text-center mr-3 mb-3 dark:text-white dark:focus:ring-gray-800"
-                        >
-                              Electronics
-                        </button>
-                        <button
-                              type="button"
-                              className="text-gray-900 border border-white hover:border-gray-200 dark:border-gray-900 dark:bg-gray-900 dark:hover:border-gray-700 bg-white focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-5 py-2.5 text-center mr-3 mb-3 dark:text-white dark:focus:ring-gray-800"
-                        >
-                              Gaming
-                        </button>
+
+
                   </div>
-                  <h3 className="text-center my-12 text-2xl font-extrabold">Here All Available Rooms: {rooms.length}</h3>
+                  <h3 className="text-center my-4 text-2xl font-extrabold">Here All Available Rooms: {RoomViewer.length}</h3>
+                  <div className="text-center mb-8 mx-auto flex flex-col justify-center">
+                        <h4 className="font-bold my-5">Filter Your Product by Price</h4>
+                        <form className="flex items-center justify-center space-x-4">
+                              <input
+                                    name="min"
+                                    type="number"
+                                    placeholder="Min Price"
+                                    value={minPrice}
+                                    onChange={(e) => setMinPrice(e.target.value)}
+                                    className="border border-gray-300 rounded-md p-2 w-32"
+                              />
+                              <input
+                                    name="max"
+                                    type="number"
+                                    placeholder="Max Price"
+                                    value={maxPrice}
+                                    onChange={(e) => setMaxPrice(e.target.value)}
+                                    className="border border-gray-300 rounded-md p-2 w-32"
+                              />
+                              <button
+                                    onClick={handlePriceFilter}
+                                    className="btn bg-amber-800 hover:bg-amber-800 text-white p-2 rounded-md"
+                              >
+                                    Apply
+                              </button>
+                        </form>
+                  </div>
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
                         {
-                              rooms.map((room => <RoomCard key={room._id} room={room}></RoomCard>))
+                              RoomViewer.map((room => <RoomCard key={room._id} room={room}></RoomCard>))
                         }
                   </div>
 
