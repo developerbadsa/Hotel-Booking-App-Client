@@ -52,12 +52,21 @@ const Room_details = () => {
                               title: "Please Enter Booking and End Date",
                               icon: "warning",
                               confirmButtonText: "OK",
-                              showCancelButton: true,
                               customClass: {
                                     confirmButton: 'custom-confirm-button',
                               },
                         })
                   )
+            }else if(BookingTimeDay<1){
+                return  (Swal.fire({
+                        title: "Please Make sure Your Booking Date",
+                        text: `Your Start date is ${startDate} and your End date is ${endDate}. You Need at least one day`,
+                        icon: "warning",
+                        confirmButtonText: "OK",
+                        customClass: {
+                              confirmButton: 'custom-confirm-button',
+                        },
+                  }))
             }
             setModalOpen(true)
       }
@@ -80,11 +89,12 @@ const Room_details = () => {
 
       const rat = Reviews?.length >= 1 ? Reviews?.reduce((accumulator, currentValue) => currentValue.Rating + accumulator, 0) / Reviews?.length : 0
       const averageRat = parseFloat(rat.toString()) !== 0 ? parseFloat(rat.toString()) : false
+
+
       return (
             <section className="py-10 font-poppins dark:bg-gray-800">
                   <div className="max-w-6xl px-4 mx-auto">
-                        
-                  <Toast message={"toastMessage"} show={true} />
+            
 
                         <div className="flex flex-wrap mb-24 -mx-4">
                               <div className="w-full px-4 mb-8 md:w-1/2 md:mb-0">
