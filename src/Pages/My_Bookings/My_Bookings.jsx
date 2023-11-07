@@ -19,7 +19,6 @@ const My_Bookings = () => {
       if (isPending) {
             return <Loading></Loading>
       }
-      console.log(bookings)
       return (
             <>
                   <section className="items-center lg:flex bg-white rahimbadsa723@gmail.com dark:bg-gray-800">
@@ -45,28 +44,52 @@ const My_Bookings = () => {
                                                 </thead>
                                                 <tbody>
                                                       {bookings?.map(((booking, index) => {
+                                                            const { _id, RoomTitle, BookingTimeDay, endDate, CreateBookingTime, startDate } = booking;
 
-                                                            const { _id, RoomTitle, BookingTimeDay, endDate, CreateBookingTime } = booking;
 
                                                             const handleBookCancel = () => {
+
+
+                                                                  const nowDate = new Date();
+                                                                  const nowDates = new Date(startDate);
+                                                                  const differenceInDays = Math.floor((nowDates - nowDate) / (1000 * 60 * 60 * 24))
+
+                                                                  if (differenceInDays > 1) {
+                                                                        console.log(differenceInDays)
+                                                                        return (
+                                                                              Swal.fire({
+                                                                                    title: 'You Cant Cancel',
+                                                                                    text: 'You can cancel a booking before 1 day from the booking day.',
+                                                                                    icon: 'warning',
+                                                                                    showCancelButton: false,
+                                                                                    cancelButtonColor: '#5e615d',
+                                                                                    cancelButtonText: 'Cancel',
+                                                                              })
+                                                                        )
+
+                                                                  }
                                                                   Swal.fire({
-                                                                        title: 'Delete Booking',
+                                                                        title: 'Cancel Booking',
                                                                         text: 'Are you sure you want to delete this booking?',
                                                                         icon: 'warning',
                                                                         showCancelButton: true,
                                                                         confirmButtonColor: '#e8850c',
                                                                         cancelButtonColor: '#5e615d',
-                                                                        confirmButtonText: 'Yes, delete it',
+                                                                        confirmButtonText: 'Yes, I Want Cancel it',
                                                                         cancelButtonText: 'Cancel',
-                                                                      })
-                                                                      .then(result=>{
-                                                                        if(result.isConfirmed){
-                                                                              axios.delete(`http://localhost:5000/my_bookings/delete/?deleteBook=${_id}`)
-                                                                              .then(res => console.log(res))
-                                                                              .catch(err=>console.log(err))
-                                                                        }
-                                                                        
-                                                                      })
+                                                                  })
+                                                                        .then(result => {
+                                                                              if (result.isConfirmed) {
+                                                                                    axios.delete(`http://localhost:5000/my_bookings/delete/?deleteBook=${_id}&email=${user.email}&title=${RoomTitle}`)
+                                                                                          .then(() => {
+
+                                                                                                refetch()
+                                                                                          }
+                                                                                          )
+                                                                                          .catch(err => console.log(err))
+                                                                              }
+
+                                                                        })
                                                             }
 
 

@@ -23,7 +23,6 @@ const Rooms = () => {
             return  <Loading></Loading>
       }
 
-
       const handlePriceFilter = (e) => {
             e.preventDefault()
             const min = parseFloat(minPrice);
@@ -35,19 +34,9 @@ const Rooms = () => {
             });
             setData(filteredRooms)
             setShow(false)
-
-
-            // console.log(filteredRooms)
-
       };
 
       const RoomViewer = show ? rooms : data
-
-
-      console.log(RoomViewer)
-
-
-
 
       return (
             <div>
