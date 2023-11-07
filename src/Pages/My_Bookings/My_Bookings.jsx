@@ -52,14 +52,14 @@ const My_Bookings = () => {
 
                                                                   const nowDate = new Date();
                                                                   const nowDates = new Date(startDate);
-                                                                  const differenceInDays = Math.floor((nowDates - nowDate) / (1000 * 60 * 60 * 24))
+                                                                  const differenceInDays = Math.floor((nowDates - nowDate) / (1000 * 60 * 60 * 24))+1
 
-                                                                  if (differenceInDays > 1) {
+                                                                  if (differenceInDays <= 1) {
                                                                         console.log(differenceInDays)
                                                                         return (
                                                                               Swal.fire({
                                                                                     title: 'You Cant Cancel',
-                                                                                    text: 'You can cancel a booking before 1 day from the booking day.',
+                                                                                    text: 'You cant cancel a booking before 1 day from the booking day.',
                                                                                     icon: 'warning',
                                                                                     showCancelButton: false,
                                                                                     cancelButtonColor: '#5e615d',
