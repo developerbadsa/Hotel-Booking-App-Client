@@ -9,14 +9,14 @@ import Swal from "sweetalert2";
 const My_Bookings = () => {
       const { user } = UseUser();
 
-      const { data: bookings, isPending, refetch } = useQuery({
+      const { data: bookings,  isLoading, refetch } = useQuery({
             queryKey: ['userBookings'],
             queryFn: async () => {
-                  const data = await fetch(`http://localhost:5000/my_bookings/?email=${user.email}`)
+                  const data = await fetch(`http://localhost:5000/my_bookings/?email=${user.email}`, { credentials: 'include'})
                   return await data.json();
             }
       })
-      if (isPending) {
+      if (isLoading) {
             return <Loading></Loading>
       }
       return (

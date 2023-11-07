@@ -49,6 +49,7 @@ const Login = () => {
                         'Successfuly logged in with Google',
                         'success'
                   )
+                  navigatePage('/');
             })
       }
 
