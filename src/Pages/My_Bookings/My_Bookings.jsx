@@ -2,6 +2,8 @@ import { useQuery } from "@tanstack/react-query";
 import { Helmet } from "react-helmet";
 import UseUser from "../../Hooks/UseUser";
 import Loading from "../../Layout/Components/Loading_spinner/Loading";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 
 const My_Bookings = () => {
@@ -18,7 +20,6 @@ const My_Bookings = () => {
             return <Loading></Loading>
       }
       console.log(bookings)
-      // const {} = bookings;
       return (
             <>
                   <section className="items-center lg:flex bg-white rahimbadsa723@gmail.com dark:bg-gray-800">
@@ -45,7 +46,31 @@ const My_Bookings = () => {
                                                 <tbody>
                                                       {bookings?.map(((booking, index) => {
 
-                                                            const { RoomTitle, BookingTimeDay, endDate, CreateBookingTime } = booking;
+                                                            const { _id, RoomTitle, BookingTimeDay, endDate, CreateBookingTime } = booking;
+
+                                                            const handleBookCancel = () => {
+                                                                  Swal.fire({
+                                                                        title: 'Delete Booking',
+                                                                        text: 'Are you sure you want to delete this booking?',
+                                                                        icon: 'warning',
+                                                                        showCancelButton: true,
+                                                                        confirmButtonColor: '#e8850c',
+                                                                        cancelButtonColor: '#5e615d',
+                                                                        confirmButtonText: 'Yes, delete it',
+                                                                        cancelButtonText: 'Cancel',
+                                                                      })
+                                                                      .then(result=>{
+                                                                        if(result.isConfirmed){
+                                                                              axios.delete(`http://localhost:5000/my_bookings/delete/?deleteBook=${_id}`)
+                                                                              .then(res => console.log(res))
+                                                                              .catch(err=>console.log(err))
+                                                                        }
+                                                                        
+                                                                      })
+                                                            }
+
+
+
 
                                                             return (
 
@@ -76,10 +101,7 @@ const My_Bookings = () => {
                                                                                           />
                                                                                     </svg>
                                                                               </a>
-                                                                              <a
-                                                                                    href="#"
-                                                                                    className="font-medium text-red-600 hover:text-red-500 dark:hover:text-red-300 dark:text-red-400"
-                                                                              >
+                                                                              <a onClick={handleBookCancel} className="font-medium text-red-600 hover:text-red-500 dark:hover:text-red-300 dark:text-red-400" >
                                                                                     <svg
                                                                                           xmlns="http://www.w3.org/2000/svg"
                                                                                           width={16}
