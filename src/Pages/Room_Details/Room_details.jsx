@@ -1,12 +1,12 @@
 import { useQuery } from '@tanstack/react-query';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import Loading from '../../Layout/Components/Loading_spinner/Loading';
 import StarRating from '../../Layout/Components/Rating/Rating';
 import { useEffect, useState } from 'react';
-import Test from '../Rooms/test';
 import Swal from 'sweetalert2';
 import axios, { Axios } from 'axios';
 import UseUser from '../../Hooks/UseUser';
+import Toast from '../../Layout/Components/Toast_Message/Toast';
 
 const Room_details = () => {
       const { title } = useParams()
@@ -16,14 +16,15 @@ const Room_details = () => {
       const { user } = UseUser();
       const BookingTimeDay = (new Date(endDate) - new Date(startDate)) / 86400000
       const date = new Date()
-      const day = date.getDate().toString().padStart(2, '0'); 
-      const month = (date.getMonth() + 1).toString().padStart(2, '0'); 
+      const day = date.getDate().toString().padStart(2, '0');
+      const month = (date.getMonth() + 1).toString().padStart(2, '0');
       const year = date.getFullYear();
       const CreateBookingTime = `${day}/${month}/${year}`;
       const [modalOpen, setModalOpen] = useState(false);
       const url = `http://localhost:5000/room_details/${title}`
+      const goto = useNavigate()
 
-      const { data: booking_details, isPending, refetch } = useQuery({
+      const { data: booking_details, isPending } = useQuery({
             queryKey: ['userBookings3'],
             queryFn: async () => {
                   const data = await fetch(url)
@@ -51,12 +52,9 @@ const Room_details = () => {
                               title: "Please Enter Booking and End Date",
                               icon: "warning",
                               confirmButtonText: "OK",
-                              cancelButtonText: "Cancel",
                               showCancelButton: true,
-                              showCloseButton: true,
                               customClass: {
                                     confirmButton: 'custom-confirm-button',
-                                    cancelButton: 'custom-cancel-button',
                               },
                         })
                   )
@@ -66,7 +64,15 @@ const Room_details = () => {
       const handleBookButtonFinal = (e) => {
             e.preventDefault()
             axios.post(`http://localhost:5000/room_details/?email=${user?.email}`, BookedData)
-                  .then(res => console.log(res))
+                  .then(() => {
+                     
+                        axios.put(`http://localhost:5000/room_details/${RoomTitle}`)
+                        .then(res=>{
+                              console.log(res)
+                              goto('/my_bookings')
+                        })
+
+                  })
                   .catch(err => console.log(err))
 
       }
@@ -77,6 +83,9 @@ const Room_details = () => {
       return (
             <section className="py-10 font-poppins dark:bg-gray-800">
                   <div className="max-w-6xl px-4 mx-auto">
+                        
+                  <Toast message={"toastMessage"} show={true} />
+
                         <div className="flex flex-wrap mb-24 -mx-4">
                               <div className="w-full px-4 mb-8 md:w-1/2 md:mb-0">
 
@@ -284,7 +293,6 @@ const Room_details = () => {
                               </div>
                         </div>
                   </div>
-                  <Test></Test>
             </section>
 
       );
