@@ -12,8 +12,8 @@ const My_Bookings = () => {
       const [uptStartDate, setStartDate] = useState(null)
       const [uptEndDate, setEndDate] = useState(null)
       const [showModal, setShowModal] = useState(false)
-      const [showToast, setShowToast] = useState(null)
-
+      const [review, setReview] = useState(null)
+      console.log(review)
       const {
             data: bookings,
             isLoading,
@@ -22,7 +22,7 @@ const My_Bookings = () => {
             queryKey: ['userBookings'],
             queryFn: async () => {
                   const data = await fetch(
-                        `https://hotel-booking-app-server-flame.vercel.app/my_bookings/?email=${user.email}`,
+                        `http://localhost:5000/my_bookings/?email=${user.email}`,
                         { credentials: 'include' }
                   );
                   return await data.json();
@@ -32,10 +32,6 @@ const My_Bookings = () => {
             return <Loading></Loading>;
       }
 
-
-  const showSuccessToast = () => {
-      toast.success('Successfully Date Update done!');
-    };
 
       return (
             <>
@@ -48,7 +44,7 @@ const My_Bookings = () => {
                                           </h2>
                                     </div>
                                     <div className=''>
-                                   
+
                                     </div>
 
                                     <div className='p-4 overflow-x-auto'>
@@ -110,7 +106,7 @@ const My_Bookings = () => {
                                                                         if (result.isConfirmed) {
                                                                               axios
                                                                                     .delete(
-                                                                                          `https://hotel-booking-app-server-flame.vercel.app/my_bookings/delete/?deleteBook=${_id}&email=${user.email}&title=${RoomTitle}`
+                                                                                          `http://localhost:5000/my_bookings/delete/?deleteBook=${_id}&email=${user.email}&title=${RoomTitle}`
                                                                                     )
                                                                                     .then(() => {
                                                                                           refetch();
@@ -119,6 +115,17 @@ const My_Bookings = () => {
                                                                         }
                                                                   });
                                                             };
+
+                                                            const handleReview = () => {
+                                                                  const reviewdata = { UserEmail: user.email, Rating: review, ReviewText: "review text here" }
+
+                                                                  axios.post(`http://localhost:5000/room_review?email=${user.email}`, { reviewdata })
+                                                                  Swal.fire({
+                                                                        title: "Review added",
+                                                                        icon: "success"
+                                                                      });
+                                                                  
+                                                            }
 
                                                             return (
                                                                   <tr
@@ -203,15 +210,15 @@ const My_Bookings = () => {
                                                                                                 }
                                                                                                 const updatedDateDatas = { updateStartDate: uptStartDate, updateEndDate: uptEndDate, updateBookingTimeDay: BookingTimeDay, RoomTitle }
 
-                                                                                                axios.put(`https://hotel-booking-app-server-flame.vercel.app/my_bookings/update_date?email=${user.email}`, updatedDateDatas)
+                                                                                                axios.put(`http://localhost:5000/my_bookings/update_date?email=${user.email}`, updatedDateDatas)
                                                                                                       .then(() => {
                                                                                                             Swal.fire({
                                                                                                                   title: "Success Changed your Date",
                                                                                                                   icon: "success"
-                                                                                                                });
-                                                                                                             refetch()
-                                                                                                             setShowModal(false)
-                                                                                                            })
+                                                                                                            });
+                                                                                                            refetch()
+                                                                                                            setShowModal(false)
+                                                                                                      })
                                                                                                       .catch(err => console.log(err))
                                                                                           }}>
                                                                                                 Update Date
@@ -233,7 +240,14 @@ const My_Bookings = () => {
                                                                               {CreateBookingTime}{' '}
                                                                         </td>
                                                                         <td className='px-6 py-5 font-medium'>{endDate}</td>
-                                                                        <td className='flex items-center px-6 py-5 '>
+                                                                        <td className='flex items-center px-6 py-5 gap-4 '>
+                                                                              {/* post review */}
+
+                                                                              <a className='border'>
+                                                                                    <input type="number" defaultValue={5} className='border text-blackd' onChange={(e) => setReview(e.target.value)} min="1" max="5" />
+                                                                                    <button onClick={handleReview}>  Add Review
+                                                                                    </button>
+                                                                              </a>
                                                                               {/* Handle Update */}
                                                                               <a
                                                                                     onClick={() => {

@@ -21,7 +21,7 @@ const Room_details = () => {
       const year = date.getFullYear();
       const CreateBookingTime = `${day}/${month}/${year}`;
       const [modalOpen, setModalOpen] = useState(false);
-      const url = `https://hotel-booking-app-server-flame.vercel.app/room_details/${title}`
+      const url = `http://localhost:5000/room_details/${title}`
       const goto = useNavigate()
 
       const { data: booking_details, isPending } = useQuery({
@@ -74,10 +74,10 @@ const Room_details = () => {
       }
       const handleBookButtonFinal = (e) => {
             e.preventDefault()
-            axios.post(`https://hotel-booking-app-server-flame.vercel.app/room_details/?email=${user?.email}`, BookedData)
+            axios.post(`http://localhost:5000/room_details/?email=${user?.email}`, BookedData)
                   .then(() => {
                      
-                        axios.put(`https://hotel-booking-app-server-flame.vercel.app/room_details/${RoomTitle}`)
+                        axios.put(`http://localhost:5000/room_details/${RoomTitle}`)
                         .then(res=>{
                               console.log(res)
                               goto('/my_bookings')
