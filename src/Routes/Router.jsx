@@ -9,6 +9,8 @@ import PrivateRouteLoggedIn from "./PrivateRouteLoggedIn";
 import Room_details from "../Pages/Room_Details/Room_details";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import LoggedOutPrivate from "./LoggedOutPrivate";
+import AboutUs from "../Pages/AboutUs/AboutUs";
+import ContactUs from "../Pages/ContactUs/ContactUs";
 
 const router = createBrowserRouter([
       {
@@ -33,6 +35,14 @@ const router = createBrowserRouter([
                         path: '/room_details/:title',
                         element: <Room_details></Room_details>
                             
+                  },
+                  {
+                        path: '/about',
+                        element: <AboutUs></AboutUs>
+                  },
+                  {
+                        path: '/contact',
+                        element: <ContactUs></ContactUs>
                   },
                   {
                         path: '/login',
