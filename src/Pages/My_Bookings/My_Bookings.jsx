@@ -5,7 +5,7 @@ import axios from 'axios';
 import Swal from 'sweetalert2';
 import { useState } from 'react';
 import ReactModal from 'react-modal';
-import toast from 'react-hot-toast';
+import { Helmet } from 'react-helmet';
 
 const My_Bookings = () => {
       const { user } = UseUser();
@@ -35,6 +35,10 @@ const My_Bookings = () => {
 
       return (
             <>
+                  <Helmet>
+                        <title>Your Booking | Hotel Booking</title>
+                        <link rel="icon" type="image/png" href="Images/Icons/cart.png" />
+                  </Helmet>
                   <section className='items-center lg:flex bg-white rahimbadsa723@gmail.com dark:bg-gray-800'>
                         <div className='justify-center flex-1 max-w-6xl px-4 py-4 mx-auto lg:py-8 md:px-6'>
                               <div className='pt-4 rounded shadow bg-stone-100 dark:bg-gray-900'>
@@ -123,8 +127,8 @@ const My_Bookings = () => {
                                                                   Swal.fire({
                                                                         title: "Review added",
                                                                         icon: "success"
-                                                                      });
-                                                                  
+                                                                  });
+
                                                             }
 
                                                             return (

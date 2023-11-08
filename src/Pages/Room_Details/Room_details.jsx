@@ -7,6 +7,7 @@ import Swal from 'sweetalert2';
 import axios from 'axios';
 import UseUser from '../../Hooks/UseUser';
 import { userContext } from '../../Provider/AuthProvider/AuthProvider';
+import { Helmet } from 'react-helmet';
 
 const Room_details = () => {
       const { title } = useParams()
@@ -95,6 +96,10 @@ const Room_details = () => {
 
       return (
             <section className="py-10 font-poppins dark:bg-gray-800">
+                   <Helmet>
+                        <title>{RoomTitle} | Hotel Booking</title>
+                        <link rel="icon" type="image/png" href="/public/Images/Icons/study-room.png" />
+                  </Helmet>
                   <div className="max-w-6xl px-4 mx-auto">
             
 

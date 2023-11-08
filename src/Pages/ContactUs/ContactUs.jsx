@@ -1,8 +1,13 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 
 const ContactUs = () => {
       return (
             <div>
+                  <Helmet>
+                        <title>Contact | Hotel Booking</title>
+                        <link rel="icon" type="image/png" href="/public/Images/Icons/study-room.png" />
+                  </Helmet>
                   <section className="flex items-center bg-zinc-100 font-poppins dark:bg-gray-800 ">
                         <div className="max-w-6xl px-4 py-4 mx-auto lg:py-11 md:px-6">
                               <div className="mb-20 text-center pb-7">
@@ -10,7 +15,6 @@ const ContactUs = () => {
                                           Let's Stay Connected
                                     </h2>
                                     <p className="text-sm text-gray-600 dark:text-gray-400">
-                                          Lorem ipsum dor amet ispicusus isopiros amet ispis lorem
                                     </p>
                               </div>
                               <div className="flex flex-wrap mb-6">
@@ -32,10 +36,9 @@ const ContactUs = () => {
                                                       Email
                                                 </h2>
                                                 <h3 className="mb-6 text-lg font-medium dark:text-gray-500">
-                                                      Lorem ipsum dor amet set ispicus dor san amet
                                                 </h3>
                                                 <p className="text-xl text-gray-500 sm:text-2xl dark:text-gray-400">
-                                                      abc@gmail.com
+                                                      booking@gmail.com
                                                 </p>
                                           </div>
                                     </div>
@@ -57,7 +60,7 @@ const ContactUs = () => {
                                                       Phone
                                                 </h2>
                                                 <h3 className="mb-6 text-lg font-medium dark:text-gray-500">
-                                                      Lorem ipsum dor amet set ispicus dor san amet
+                                                     
                                                 </h3>
                                                 <p className="text-xl text-gray-500 sm:text-2xl dark:text-gray-400">
                                                       +977-014451967

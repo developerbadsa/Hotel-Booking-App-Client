@@ -1,7 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 import RoomCard from "./Sections/RoomCard";
-import {useState } from "react";
+import { useState } from "react";
 import Loading from "../../Layout/Components/Loading_spinner/Loading";
+import { Helmet } from "react-helmet";
 
 
 const Rooms = () => {
@@ -20,7 +21,7 @@ const Rooms = () => {
       })
 
       if (isPending) {
-            return  <Loading></Loading>
+            return <Loading></Loading>
       }
 
       const handlePriceFilter = (e) => {
@@ -40,7 +41,10 @@ const Rooms = () => {
 
       return (
             <div>
-
+                  <Helmet>
+                        <title>Rooms | Hotel Booking</title>
+                        <link rel="icon" type="image/png" href="/public/Images/Icons/study-room.png" />
+                  </Helmet>
                   <div className="flex items-center justify-center py-4 md:py-8 flex-wrap gap-4">
                         <button
                               type="button"
