@@ -8,8 +8,8 @@ import ReactModal from 'react-modal';
 
 const My_Bookings = () => {
       const { user } = UseUser();
-      const [startDate, setStartDate] = useState(null)
-      const [endDate, setEndDate] = useState(null)
+      const [uptStartDate, setStartDate] = useState(null)
+      const [uptEndDate, setEndDate] = useState(null)
       const [showModal, setShowModal] = useState(false)
 
       const {
@@ -42,92 +42,6 @@ const My_Bookings = () => {
                                     </div>
                                     <div className=''>
 
-
-                                          {/* ==========Modal for update============== */}
-                                          <ReactModal
-                                                isOpen={showModal}
-                                                onRequestClose={() => setShowModal(false)}
-                                                contentLabel=""
-                                                shouldCloseOnOverlayClick={true}
-                                                shouldCloseOnEsc={true}
-                                                ariaHideApp={false}
-                                                style={{
-                                                      overlay: {
-                                                            backgroundColor: 'rgba(0, 0, 0, 0.5)', // Semi-transparent background
-                                                      },
-                                                      content: {
-                                                            width: '33%',
-                                                            height:'300px',
-                                                            margin: 'auto',
-                                                            padding: '20px'
-                                                      },
-                                                }} >
-
-
-                                                <div className="w-full flex flex-col justify-center items-center">
-                                                      <h5 className='my-3'>Update Booking Duration</h5>
-                                                      <div className="flex items-center">
-
-                                                            <div className="relative">
-                                                                  <input
-                                                                        name="start"
-                                                                        type="date"
-                                                                        className="bg-gray-50 border border-gray-300  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                                                        placeholder="Select date start"
-                                                                        onChange={(e) => { setStartDate(e.target.value) }}
-                                                                        required
-
-                                                                  />
-                                                            </div>
-                                                            <span className="mx-4 text-gray-500">to</span>
-                                                            {/* End date */}
-                                                            <div className="relative">
-                                                                  <input
-                                                                        name="end"
-                                                                        type="date"
-                                                                        className="bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                                                        placeholder="Select date end"
-                                                                        onChange={(e) => { setEndDate(e.target.value) }}
-                                                                        required
-                                                                  />
-                                                            </div>
-                                                      </div>
-                                                     <div className=' mt-24 flex gap-4'>
-                                                     <button className="btn bg-amber-800 hover:bg-amber-800 text-white" onClick={() => {
-                                                            const BookingTimeDay = (new Date(endDate) - new Date(startDate)) / 86400000
-                                                       if (!startDate || !endDate) {
-                                                            return (
-                                                                  Swal.fire({
-                                                                        title: "Please Enter Update Booking and End Date",
-                                                                        icon: "warning",
-                                                                        confirmButtonText: "OK",
-                                                                        customClass: {
-                                                                              confirmButton: 'custom-confirm-button',
-                                                                        },
-                                                                  })
-                                                            )
-                                                      }else if(BookingTimeDay<1){
-                                                          return  (Swal.fire({
-                                                                  title: "Please Make sure Your Booking Date",
-                                                                  text: `Your Start date is ${startDate} and your End date is ${endDate}. You Need at least one day`,
-                                                                  icon: "warning",
-                                                                  confirmButtonText: "OK",
-                                                                  customClass: {
-                                                                        confirmButton: 'custom-confirm-button',
-                                                                  },
-                                                            }))
-                                                      }
-                                                      console.log(startDate, endDate, BookingTimeDay)
-                                                }}>
-                                                            Update Date
-                                                      </button>
-                                                     <button className="btn" onClick={() => setShowModal(false)}>
-                                                            Close
-                                                      </button>
-                                                     </div>
-
-                                                </div>
-                                          </ReactModal>
                                     </div>
 
                                     <div className='p-4 overflow-x-auto'>
@@ -203,6 +117,101 @@ const My_Bookings = () => {
                                                                   <tr
                                                                         key={index}
                                                                         className='text-sm bg-white dark:text-gray-400 dark:bg-gray-800'>
+                                                                        {/* ==========Modal for update============== */}
+                                                                        <ReactModal
+                                                                              isOpen={showModal}
+                                                                              onRequestClose={() => setShowModal(false)}
+                                                                              contentLabel=""
+                                                                              shouldCloseOnOverlayClick={true}
+                                                                              shouldCloseOnEsc={true}
+                                                                              ariaHideApp={false}
+                                                                              style={{
+                                                                                    overlay: {
+                                                                                          backgroundColor: 'rgba(2, 0, 0, 0.2)',
+                                                                                          backdropFilter: 'blur(2px)'
+                                                                                    },
+                                                                                    content: {
+                                                                                          width: '33%',
+                                                                                          height: '300px',
+                                                                                          margin: 'auto',
+                                                                                          padding: '20px',
+                                                                                          border: '1px solid black'
+                                                                                    },
+                                                                              }} >
+
+
+                                                                              <div className="w-full flex flex-col justify-center items-center">
+                                                                                    <h5 className='my-3'>Update Booking Duration</h5>
+                                                                                    <div className="flex items-center">
+
+                                                                                          <div className="relative">
+                                                                                                <input
+                                                                                                      name="start"
+                                                                                                      type="date"
+                                                                                                      className="bg-gray-50 border border-gray-300  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                                                                                      placeholder="Select date start"
+                                                                                                      onChange={(e) => { setStartDate(e.target.value) }}
+                                                                                                      required
+
+                                                                                                />
+                                                                                          </div>
+                                                                                          <span className="mx-4 text-gray-500">to</span>
+                                                                                          {/* End date */}
+                                                                                          <div className="relative">
+                                                                                                <input
+                                                                                                      name="end"
+                                                                                                      type="date"
+                                                                                                      className="bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                                                                                      placeholder="Select date end"
+                                                                                                      onChange={(e) => { setEndDate(e.target.value) }}
+                                                                                                      required
+                                                                                                />
+                                                                                          </div>
+                                                                                    </div>
+                                                                                    <div className=' mt-24 flex gap-4'>
+                                                                                          <button className="btn bg-amber-800 hover:bg-amber-800 text-white" onClick={() => {
+
+                                                                                                const BookingTimeDay = (new Date(uptEndDate) - new Date(uptStartDate)) / 86400000
+                                                                                                if (!uptStartDate || !uptEndDate) {
+                                                                                                      return (
+                                                                                                            Swal.fire({
+                                                                                                                  title: "Please Enter Update Booking and End Date",
+                                                                                                                  icon: "warning",
+                                                                                                                  confirmButtonText: "OK",
+                                                                                                                  customClass: {
+                                                                                                                        confirmButton: 'custom-confirm-button',
+                                                                                                                  },
+                                                                                                            })
+                                                                                                      )
+                                                                                                } else if (BookingTimeDay < 1) {
+                                                                                                      return (Swal.fire({
+                                                                                                            title: "Please Make sure Your Booking Date",
+                                                                                                            text: `Your Start date is ${uptStartDate} and your End date is ${uptEndDate}. You Need at least one day`,
+                                                                                                            icon: "warning",
+                                                                                                            confirmButtonText: "OK",
+                                                                                                            customClass: {
+                                                                                                                  confirmButton: 'custom-confirm-button',
+                                                                                                            },
+                                                                                                      }))
+                                                                                                }
+                                                                                                const updatedDateDatas = { updateStartDate: uptStartDate, updateEndDate: uptEndDate, updateBookingTimeDay: BookingTimeDay, RoomTitle }
+
+                                                                                                axios.put(`http://localhost:5000/my_bookings/update_date?email=${user.email}`, updatedDateDatas)
+                                                                                                      .then(() => {
+                                                                                                             refetch()
+                                                                                                             setShowModal(false)
+                                                                                                            })
+                                                                                                      .catch(err => console.log(err))
+                                                                                          }}>
+                                                                                                Update Date
+                                                                                          </button>
+                                                                                          <button className="btn" onClick={() => setShowModal(false)}>
+                                                                                                Close
+                                                                                          </button>
+                                                                                    </div>
+
+                                                                              </div>
+                                                                        </ReactModal>
                                                                         <td className='flex items-center px-6 py-5 font-medium'>
                                                                               <p className=''>{RoomTitle}</p>
                                                                         </td>
@@ -216,7 +225,13 @@ const My_Bookings = () => {
                                                                         <td className='flex items-center px-6 py-5 '>
                                                                               {/* Handle Update */}
                                                                               <a
-                                                                                    onClick={()=>setShowModal(true)}
+                                                                                    onClick={() => {
+                                                                                          setShowModal(true)
+                                                                                          const data = () => {
+                                                                                                console.log('data comming soon')
+                                                                                          }
+
+                                                                                    }}
                                                                                     className='font-medium text-blue-600 hover:text-blue-500 dark:hover:text-gray-300 dark:text-blue-300'>
                                                                                     <svg
                                                                                           xmlns='http://www.w3.org/2000/svg'
