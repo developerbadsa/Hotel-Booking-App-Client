@@ -8,7 +8,7 @@ import Subscribe_Newslater from "./Sections/Subscribe_Newslater";
 
 const Home = () => {
 
-
+console.log(import.meta.env.VITE_apiKey)
       return (
             <HelmetProvider>
                   <div>

@@ -4,9 +4,9 @@ import Loading from '../../Layout/Components/Loading_spinner/Loading';
 import StarRating from '../../Layout/Components/Rating/Rating';
 import { useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
-import axios, { Axios } from 'axios';
+import axios from 'axios';
 import UseUser from '../../Hooks/UseUser';
-import Toast from '../../Layout/Components/Toast_Message/Toast';
+import { userContext } from '../../Provider/AuthProvider/AuthProvider';
 
 const Room_details = () => {
       const { title } = useParams()
@@ -143,7 +143,8 @@ const Room_details = () => {
                                                       }
                                                 </h2>
                                                 {/* rating */}
-                                                {
+                                              <div>
+                                              {
                                                       averageRat ? <div className="flex flex-wrap items-center mb-6 gap-4">
 
                                                             {/* Ratings Section  */}
@@ -159,6 +160,7 @@ const Room_details = () => {
                                                             </Link>
                                                       </div> : <div className='my-8 text-slate-500 text-xs ml-5 ' >In This room Rating not Available</div>
                                                 }
+                                              </div>
                                                 <p className="inline-block text-2xl font-semibold text-gray-700 my-3 dark:text-gray-400 ">
                                                       <span>${PricePerNight}</span> <span className='text-sm'>/ Per Night</span>
                                                 </p>
@@ -243,10 +245,11 @@ const Room_details = () => {
                                                       </div>
                                                 </div>
                                           </div>
-                                          <form className="flex gap-4 mb-6">
+                                          <form className="flex gap-4 mb-6 ">
                                                 <Link onClick={handleBookButton}
-                                                      className="w-full px-4 py-3 text-center text-white hover:text-white bg-amber-800 border border-transparent dark:border-gray-700 hover:border-amber-800  hover:bg-amber-800 dark:text-gray-400 dark:bg-gray-700 dark:hover:bg-gray-900 rounded-xl text-xl font-bold"
-                                                >
+                                                      className="w-full px-4 disabled:bg-red-200 py-3 text-center text-white hover:text-white bg-amber-800 border border-transparent dark:border-gray-700 hover:border-amber-800  hover:bg-amber-800 dark:text-gray-400 dark:bg-gray-700 dark:hover:bg-gray-900 rounded-xl text-xl font-bold"
+                                                disabled
+                                               >
                                                       Buy now {price > 0 && price}
                                                 </Link>
 

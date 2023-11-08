@@ -30,7 +30,7 @@ const router = createBrowserRouter([
                   },
                   {
                         path: '/room_details/:title',
-                        element: <PrivateRouteLoggedIn><Room_details></Room_details></PrivateRouteLoggedIn>
+                        element: <Room_details></Room_details>
                             
                   },
                   {
