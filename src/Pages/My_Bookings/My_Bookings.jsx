@@ -5,12 +5,14 @@ import axios from 'axios';
 import Swal from 'sweetalert2';
 import { useState } from 'react';
 import ReactModal from 'react-modal';
+import toast from 'react-hot-toast';
 
 const My_Bookings = () => {
       const { user } = UseUser();
       const [uptStartDate, setStartDate] = useState(null)
       const [uptEndDate, setEndDate] = useState(null)
       const [showModal, setShowModal] = useState(false)
+      const [showToast, setShowToast] = useState(null)
 
       const {
             data: bookings,
@@ -30,6 +32,11 @@ const My_Bookings = () => {
             return <Loading></Loading>;
       }
 
+
+  const showSuccessToast = () => {
+      toast.success('Successfully Date Update done!');
+    };
+
       return (
             <>
                   <section className='items-center lg:flex bg-white rahimbadsa723@gmail.com dark:bg-gray-800'>
@@ -41,7 +48,7 @@ const My_Bookings = () => {
                                           </h2>
                                     </div>
                                     <div className=''>
-
+                                   
                                     </div>
 
                                     <div className='p-4 overflow-x-auto'>
@@ -198,6 +205,10 @@ const My_Bookings = () => {
 
                                                                                                 axios.put(`http://localhost:5000/my_bookings/update_date?email=${user.email}`, updatedDateDatas)
                                                                                                       .then(() => {
+                                                                                                            Swal.fire({
+                                                                                                                  title: "Success Changed your Date",
+                                                                                                                  icon: "success"
+                                                                                                                });
                                                                                                              refetch()
                                                                                                              setShowModal(false)
                                                                                                             })
