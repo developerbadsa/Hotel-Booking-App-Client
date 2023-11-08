@@ -64,7 +64,7 @@ function TestimonialCarousel() {
       };
 
       return (
-            <div className="w-full  my-18 shadow-2xl flex gap-10">
+            <div className="w-full  my-18 shadow-2xl lg:flex gap-10 p-5">
                   <div className="text-center shadow-sm">
                         <h1 className="text-4xl my-5 font-bold">Testimonials</h1>
                         <p className="text-lg my-6 mb-12">
@@ -77,7 +77,7 @@ function TestimonialCarousel() {
                               <button className="absolute top-1/2 left-0 transform -translate-y-1/2 p-2 text-2xl" onClick={prevTestimonial}>
                                     <FaArrowLeft />
                               </button>
-                              <blockquote className="px-32">
+                              <blockquote className="lg:px-32 px-7">
                                     <p className="text-2xl font-semibold text-gray-900 dark:text-white transition-opacity duration-500">
                                           {testimonials[currentTestimonial].text}
                                     </p>

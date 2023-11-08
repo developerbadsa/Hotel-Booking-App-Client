@@ -5,7 +5,7 @@ const Special_Offers = () => {
       return (
             <div className="py-12 my-24" style={{ backgroundImage: 'url(./public/Images/room2-1024x664.jpeg)' }}>
                   <div className="text-center my-4 text-white"><Section_introductopn title={'OUR ROOM PRICES'} description={'The Best Prices'} /></div>
-                  <div className="px-20 grid grid-cols-3">
+                  <div className="px-20 grid lg:grid-cols-3 md:grid-cols-2 justify-center gap-6">
                         {/* Cards */}
                         {/* Card 1 */}
                         <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">

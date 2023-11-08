@@ -7,6 +7,8 @@ import Subscribe_Newslater from "./Sections/Subscribe_Newslater";
 
 
 const Home = () => {
+
+
       return (
             <HelmetProvider>
                   <div>

@@ -138,10 +138,10 @@ const My_Bookings = () => {
                                                                                           backdropFilter: 'blur(2px)'
                                                                                     },
                                                                                     content: {
-                                                                                          width: '33%',
+                                                                                          width: '450px',
                                                                                           height: '300px',
                                                                                           margin: 'auto',
-                                                                                          padding: '20px',
+                                                                                          padding: '35px 5px',
                                                                                           border: '1px solid black'
                                                                                     },
                                                                               }} >
