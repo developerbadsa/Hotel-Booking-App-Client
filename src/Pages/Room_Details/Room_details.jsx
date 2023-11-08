@@ -46,7 +46,9 @@ const Room_details = () => {
       const BookedData = { BookingTimeDay, startDate, endDate, RoomID, RoomTitle, RoomDescription, PricePerNight, Availability, RoomImages, CreateBookingTime }
       const handleBookButton = (e) => {
             e.preventDefault()
-            if (!startDate || !endDate) {
+            if(!user){
+                  return goto('/login')
+            }else if (!startDate || !endDate) {
                   return (
                         Swal.fire({
                               title: "Please Enter Booking and End Date",
@@ -144,7 +146,10 @@ const Room_details = () => {
                                                 </h2>
                                                 {/* rating */}
                                               <div>
-                                              {
+                                            { user ? <>
+                                            
+                                            
+                                                {
                                                       averageRat ? <div className="flex flex-wrap items-center mb-6 gap-4">
 
                                                             {/* Ratings Section  */}
@@ -160,6 +165,9 @@ const Room_details = () => {
                                                             </Link>
                                                       </div> : <div className='my-8 text-slate-500 text-xs ml-5 ' >In This room Rating not Available</div>
                                                 }
+                                            
+                                            
+                                            </>: <div className='my-4'>To See Review Please <Link to='/login' className='text-blue-600 underline mx-4'>Login Here</Link></div>}
                                               </div>
                                                 <p className="inline-block text-2xl font-semibold text-gray-700 my-3 dark:text-gray-400 ">
                                                       <span>${PricePerNight}</span> <span className='text-sm'>/ Per Night</span>
@@ -245,13 +253,14 @@ const Room_details = () => {
                                                       </div>
                                                 </div>
                                           </div>
-                                          <form className="flex gap-4 mb-6 ">
-                                                <Link onClick={handleBookButton}
-                                                      className="w-full px-4 disabled:bg-red-200 py-3 text-center text-white hover:text-white bg-amber-800 border border-transparent dark:border-gray-700 hover:border-amber-800  hover:bg-amber-800 dark:text-gray-400 dark:bg-gray-700 dark:hover:bg-gray-900 rounded-xl text-xl font-bold"
-                                                disabled
-                                               >
-                                                      Buy now {price > 0 && price}
-                                                </Link>
+                                          <form className="flex flex-col gap-4 mb-6 ">
+                                               {!user &&  <span className='text-red-500 font-bold'>You Must Login Before Book Room <Link to='/login' className='text-blue-600 underline mx-4'>Login Here</Link></span>}
+                                                <button onClick={handleBookButton}
+                                                      className="w-full px-4 disabled:bg-red-300 disabled:text-slate-500 py-3 text-center text-white hover:text-white bg-amber-800 border border-transparent dark:border-gray-700 hover:border-amber-800  hover:bg-amber-800 dark:text-gray-400 dark:bg-gray-700 dark:hover:bg-gray-900 rounded-xl text-xl font-bold"
+                                                
+                                              disabled={!user} >
+                                                      <Link to='/login'>Buy now {price > 0 && price}</Link>
+                                                </button>
 
                                           </form>
                                           {modalOpen && (
