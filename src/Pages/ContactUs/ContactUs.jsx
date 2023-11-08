@@ -6,7 +6,7 @@ const ContactUs = () => {
             <div>
                   <Helmet>
                         <title>Contact | Hotel Booking</title>
-                        <link rel="icon" type="image/png" href="/public/Images/Icons/study-room.png" />
+                        <link rel="icon" type="image/png" href="https://i.ibb.co/KV4XPrq/study-room.png" />
                   </Helmet>
                   <section className="flex items-center bg-zinc-100 font-poppins dark:bg-gray-800 ">
                         <div className="max-w-6xl px-4 py-4 mx-auto lg:py-11 md:px-6">

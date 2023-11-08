@@ -37,7 +37,7 @@ const My_Bookings = () => {
             <>
                   <Helmet>
                         <title>Your Booking | Hotel Booking</title>
-                        <link rel="icon" type="image/png" href="Images/Icons/cart.png" />
+                        <link rel="icon" type="image/png" href="https://i.ibb.co/NK8zKtP/cart.png" />
                   </Helmet>
                   <section className='items-center lg:flex bg-white rahimbadsa723@gmail.com dark:bg-gray-800'>
                         <div className='justify-center flex-1 max-w-6xl px-4 py-4 mx-auto lg:py-8 md:px-6'>
