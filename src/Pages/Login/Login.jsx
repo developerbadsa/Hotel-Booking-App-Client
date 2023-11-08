@@ -19,23 +19,14 @@ const Login = () => {
                   .then(() => {
 
                         formRef.current.reset();
-                        navigatePage('/');
 
                         Swal.fire(
                               'Congratulations!',
                               'Successfuly logged in with Email and Password',
                               'success'
                         )
+                        navigatePage('/');
 
-                  })
-                  .catch(err => {
-
-
-                        Swal.fire({
-                              icon: 'error',
-                              title: 'Oops...',
-                              text: err.message
-                        });
                   })
 
 

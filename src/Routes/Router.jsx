@@ -8,6 +8,7 @@ import Register from "../Pages/Register/Register";
 import PrivateRouteLoggedIn from "./PrivateRouteLoggedIn";
 import Room_details from "../Pages/Room_Details/Room_details";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import LoggedOutPrivate from "./LoggedOutPrivate";
 
 const router = createBrowserRouter([
       {
@@ -35,11 +36,11 @@ const router = createBrowserRouter([
                   },
                   {
                         path: '/login',
-                        element: <Login></Login>
+                        element: <LoggedOutPrivate><Login></Login></LoggedOutPrivate>
                   },
                   {
                         path: '/register',
-                        element: <Register></Register>
+                        element:<LoggedOutPrivate><Register></Register></LoggedOutPrivate>
                   }
             ]
       }

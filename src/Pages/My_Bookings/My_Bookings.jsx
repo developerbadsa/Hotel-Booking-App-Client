@@ -22,7 +22,7 @@ const My_Bookings = () => {
             queryKey: ['userBookings'],
             queryFn: async () => {
                   const data = await fetch(
-                        `http://localhost:5000/my_bookings/?email=${user.email}`,
+                        `https://hotel-booking-app-server-flame.vercel.app/my_bookings/?email=${user.email}`,
                         { credentials: 'include' }
                   );
                   return await data.json();
@@ -110,7 +110,7 @@ const My_Bookings = () => {
                                                                         if (result.isConfirmed) {
                                                                               axios
                                                                                     .delete(
-                                                                                          `http://localhost:5000/my_bookings/delete/?deleteBook=${_id}&email=${user.email}&title=${RoomTitle}`
+                                                                                          `https://hotel-booking-app-server-flame.vercel.app/my_bookings/delete/?deleteBook=${_id}&email=${user.email}&title=${RoomTitle}`
                                                                                     )
                                                                                     .then(() => {
                                                                                           refetch();
@@ -203,7 +203,7 @@ const My_Bookings = () => {
                                                                                                 }
                                                                                                 const updatedDateDatas = { updateStartDate: uptStartDate, updateEndDate: uptEndDate, updateBookingTimeDay: BookingTimeDay, RoomTitle }
 
-                                                                                                axios.put(`http://localhost:5000/my_bookings/update_date?email=${user.email}`, updatedDateDatas)
+                                                                                                axios.put(`https://hotel-booking-app-server-flame.vercel.app/my_bookings/update_date?email=${user.email}`, updatedDateDatas)
                                                                                                       .then(() => {
                                                                                                             Swal.fire({
                                                                                                                   title: "Success Changed your Date",
