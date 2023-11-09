@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "./Components/Header/Navbar";
 import Menus from "./Components/Header/Menus";
+import Footer from "./Components/Footer/Footer";
 
 
 const MainlayOut = () => {
@@ -13,6 +14,7 @@ const MainlayOut = () => {
                         <div className="drawer-content">
                              <Navbar></Navbar>
                               <Outlet></Outlet>
+                              <Footer></Footer>
                         </div>
                         <div className="drawer-side ">
                               <label htmlFor="my-drawer-3" aria-label="close sidebar" className="drawer-overlay"></label>
