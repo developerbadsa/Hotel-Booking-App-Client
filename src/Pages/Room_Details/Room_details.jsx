@@ -47,9 +47,9 @@ const Room_details = () => {
       const BookedData = { BookingTimeDay, startDate, endDate, RoomID, RoomTitle, RoomDescription, PricePerNight, Availability, RoomImages, CreateBookingTime }
       const handleBookButton = (e) => {
             e.preventDefault()
-            if(!user){
+            if (!user) {
                   return goto('/login')
-            }else if (!startDate || !endDate) {
+            } else if (!startDate || !endDate) {
                   return (
                         Swal.fire({
                               title: "Please Enter Booking and End Date",
@@ -60,8 +60,8 @@ const Room_details = () => {
                               },
                         })
                   )
-            }else if(BookingTimeDay<1){
-                return  (Swal.fire({
+            } else if (BookingTimeDay < 1) {
+                  return (Swal.fire({
                         title: "Please Make sure Your Booking Date",
                         text: `Your Start date is ${startDate} and your End date is ${endDate}. You Need at least one day`,
                         icon: "warning",
@@ -77,12 +77,12 @@ const Room_details = () => {
             e.preventDefault()
             axios.post(`http://localhost:5000/room_details/?email=${user?.email}`, BookedData)
                   .then(() => {
-                     
+
                         axios.put(`http://localhost:5000/room_details/${RoomTitle}`)
-                        .then(res=>{
-                              console.log(res)
-                              goto('/my_bookings')
-                        })
+                              .then(res => {
+                                    console.log(res)
+                                    goto('/my_bookings')
+                              })
 
                   })
                   .catch(err => console.log(err))
@@ -95,13 +95,13 @@ const Room_details = () => {
 
 
       return (
-            <section className="py-10 font-poppins dark:bg-gray-800">
-                   <Helmet>
+            <section id='reviewss' className="py-10 font-poppins dark:bg-gray-800">
+                  <Helmet>
                         <title>{RoomTitle} | Hotel Booking</title>
                         <link rel="icon" type="image/png" href="https://i.ibb.co/KV4XPrq/study-room.png" />
                   </Helmet>
                   <div className="max-w-6xl px-4 mx-auto">
-            
+
 
                         <div className="flex flex-wrap mb-24 -mx-4">
                               <div className="w-full px-4 mb-8 md:w-1/2 md:mb-0">
@@ -150,30 +150,30 @@ const Room_details = () => {
                                                       }
                                                 </h2>
                                                 {/* rating */}
-                                              <div>
-                                            { user ? <>
-                                            
-                                            
-                                                {
-                                                      averageRat ? <div className="flex flex-wrap items-center mb-6 gap-4">
+                                                <div>
+                                                      {user ? <>
 
-                                                            {/* Ratings Section  */}
-                                                            <div className='text-amber-600 flex gap-4'>
-                                                                  <span className='font-bold'>{Reviews?.length > 1 ? "Reviews:" : "Review"} {Reviews?.length}</span>
-                                                                  <StarRating rating={averageRat}></StarRating>
-                                                            </div>
-                                                            <Link
-                                                                  className="mb-4 text-xs underline hover:text-blue-600 dark:text-gray-400 dark:hover:text-gray-300 lg:mb-0"
-                                                                  href="#"
-                                                            >
-                                                                  View All Reviews
-                                                            </Link>
-                                                      </div> : <div className='my-8 text-slate-500 text-xs ml-5 ' >In This room Rating not Available</div>
-                                                }
-                                            
-                                            
-                                            </>: <div className='my-4'>To See Review Please <Link to='/login' className='text-blue-600 underline mx-4'>Login Here</Link></div>}
-                                              </div>
+
+                                                            {
+                                                                  averageRat ? <div className="flex flex-wrap items-center mb-6 gap-4">
+
+                                                                        {/* Ratings Section  */}
+                                                                        <div className='text-amber-600 flex gap-4'>
+                                                                              <span className='font-bold'>{Reviews?.length > 1 ? "Reviews:" : "Review"} {Reviews?.length}</span>
+                                                                              <StarRating rating={averageRat}></StarRating>
+                                                                        </div>
+                                                                        <a href='#reviewq'
+                                                                              className="mb-4 text-xs underline hover:text-blue-600 dark:text-gray-400 dark:hover:text-gray-300 lg:mb-0"
+
+                                                                        >
+                                                                              View All Reviews
+                                                                        </a>
+                                                                  </div> : <div className='my-8 text-slate-500 text-xs ml-5 ' >In This room Rating not Available</div>
+                                                            }
+
+
+                                                      </> : <div className='my-4'>To See Review Please <Link to='/login' className='text-blue-600 underline mx-4'>Login Here</Link></div>}
+                                                </div>
                                                 <p className="inline-block text-2xl font-semibold text-gray-700 my-3 dark:text-gray-400 ">
                                                       <span>${PricePerNight}</span> <span className='text-sm'>/ Per Night</span>
                                                 </p>
@@ -259,11 +259,11 @@ const Room_details = () => {
                                                 </div>
                                           </div>
                                           <form className="flex flex-col gap-4 mb-6 ">
-                                               {!user &&  <span className='text-red-500 font-bold'>You Must Login Before Book Room <Link to='/login' className='text-blue-600 underline mx-4'>Login Here</Link></span>}
+                                                {!user && <span className='text-red-500 font-bold'>You Must Login Before Book Room <Link to='/login' className='text-blue-600 underline mx-4'>Login Here</Link></span>}
                                                 <button onClick={handleBookButton}
                                                       className="w-full px-4 disabled:bg-red-300 disabled:text-slate-500 py-3 text-center text-white hover:text-white bg-amber-800 border border-transparent dark:border-gray-700 hover:border-amber-800  hover:bg-amber-800 dark:text-gray-400 dark:bg-gray-700 dark:hover:bg-gray-900 rounded-xl text-xl font-bold"
-                                                
-                                              disabled={!user} >
+
+                                                      disabled={!user} >
                                                       <Link >Buy now {price > 0 && price}</Link>
                                                 </button>
 
@@ -317,8 +317,84 @@ const Room_details = () => {
 
 
                                     </div>
+
                               </div>
                         </div>
+                        {
+                              user && <section id='reviewq' className="py-10 lg:py-16 bg-gray-100 font-poppins dark:bg-gray-800">
+                                    <div className="max-w-6xl px-4 py-6 mx-auto lg:py-4 md:px-6">
+                                          <div>
+                                                <h2 className="px-2 pb-2 mb-8 text-lg font-semibold border-b border-gray-300 dark:text-gray-300 dark:border-gray-700">
+                                                      Customer Reviews In This Room
+                                                </h2>
+                                                <div className="max-w-5xl px-4">
+                                                      <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+                                                            <div>
+                                                                  <span className="inline-block text-5xl font-bold text-orange-700 dark:text-gray-300 px-3">
+                                                                        {averageRat}
+                                                                  </span>
+                                                                  <span className="inline-block text-xl font-medium text-gray-700 dark:text-gray-400">
+                                                                        /{Reviews?.length}
+                                                                  </span>
+                                                                  <p className="text-sm dark:text-gray-400 my-8">
+                                                                  <StarRating  rating={averageRat}></StarRating>
+                                                                        Average Rating 
+                                                                  </p>
+                                                            </div>
+                                                            <div className='text-2xl font-bold text-amber-700'>
+                                                                  Here is review Details
+                                                            </div>
+                                                      </div>
+                                                </div>
+                                          </div>
+                                          <div className="mt-10">
+                                                <h2 className="px-2 pb-2 mb-8 text-lg font-semibold border-b border-gray-300 dark:text-gray-300 dark:border-gray-700">
+                                                      All Reviews of Customer in this Room
+                                                </h2>
+                                                <div className="max-w-5xl px-2">
+                                                      {
+                                                            Reviews.map(InReview => {
+                                                                  const {UserEmail, Rating, ReviewText} = InReview;
+                                                                  return (
+                                                                        <>
+
+                                                                              <div className="p-3 mb-4 border border-gray-200 rounded-md bg-gray-50 lg:p-6 dark:bg-gray-700 dark:border-gray-700">
+                                                                                    <div className="md:block lg:flex justify-between">
+                                                                                          {/* <img
+                                                                                                className="object-cover w-16 h-16 mr-4 rounded-full shadow"
+                                                                                                src="https://i.postimg.cc/rF6G0Dh9/pexels-emmy-e-2381069.jpg"
+                                                                                                alt="avatar"
+                                                                                          /> */}
+                                                                                          <div>
+                                                                                                <div className="flex  justify-between   mb-1">
+                                                                                                      <div className="mb-2 md:mb-0 w-1/2 flex flex-1">
+                                                                                                            <h2 className="mb-1 text-lg font-semibold text-gray-900 dark:text-gray-400">
+                                                                                                                  {UserEmail}
+                                                                                                            </h2>
+                                                                                                      </div>
+                                                                                                      <div className='lg:ml-96'>
+                                                                                                      <StarRating rating={Rating}></StarRating>
+                                                                                                      </div>
+                                                                                                </div>
+                                                                                                <p className="mt-3 text-sm text-gray-700 dark:text-gray-400 w-full">
+                                                                                                      {ReviewText} ffffffffffffffffffffffffffffffffffffffffffffffffff
+                                                                                                </p>
+                                                                                          </div>
+                                                                                    </div>
+                                                                              </div>
+
+                                                                        </>
+                                                                  )
+                                                            })
+                                                      }
+
+                                                </div>
+                                          </div>
+                                    </div>
+                              </section>
+                        }
+
+
                   </div>
             </section>
 
