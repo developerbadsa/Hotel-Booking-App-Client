@@ -139,7 +139,8 @@ const My_Bookings = () => {
                                                                               Swal.fire({
                                                                                     title: "Review added",
                                                                                     icon: "success"
-                                                                              }); console.log(res)
+                                                                              });
+                                                                              setShowReviewModal(false)
                                                                         })
                                                                         .catch(err => console.log(err))
 

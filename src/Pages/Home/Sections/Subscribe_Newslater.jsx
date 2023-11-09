@@ -30,11 +30,10 @@ const Subscribe_Newslater = () => {
             </svg>
           </a>
           <h2 className="mb-6 text-2xl font-bold tracking-wide text-gray-700 dark:text-gray-300 md:text-5xl">
-            Newsletter
+          Stay in the Loop with Our Exclusive Newsletter
           </h2>
           <p className="mb-6 text-base font-medium text-gray-500 dark:text-gray-400 md:text-lg">
-            Lorem ipsum dor amet set ispisucs ipsum amet dor lorem isodispus
-            Lorem ipsum dor amet set ispisucs ipsum amet dor lorem isodispus
+          Welcome to the heart of all things travel and adventure! Our newsletter is your passport to a world of exciting possibilities. Get ready to embark on a journey filled with exclusive deals, insider tips, and the latest updates on the hottest destinations.
           </p>
           <div className="flex flex-wrap justify-center ">
             <input
