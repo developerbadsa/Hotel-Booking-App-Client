@@ -23,7 +23,7 @@ const Menus = () => {
                         <NavLink
                               to="/"
                               className={({ isActive, isPending }) =>
-                                    isPending ? "bg-red-400" : isActive ? " text-green-500" : ""
+                                    isPending ? "bg-red-400" : isActive ? " text-amber-500" : ""
                               }
                         >
                               Home
@@ -33,7 +33,7 @@ const Menus = () => {
                         <NavLink
                               to="/rooms"
                               className={({ isActive, isPending }) =>
-                                    isPending ? "bg-red-400" : isActive ? " text-green-500" : ""
+                                    isPending ? "bg-red-400" : isActive ? " text-amber-500" : ""
                               }
                         >
                               Rooms
@@ -44,7 +44,7 @@ const Menus = () => {
                         <NavLink
                               to="/my_bookings"
                               className={({ isActive, isPending }) =>
-                                    isPending ? "bg-red-400" : isActive ? " text-green-500" : ""
+                                    isPending ? "bg-red-400" : isActive ? " text-amber-500" : ""
                               }
                         >
                               My Bookings
@@ -54,7 +54,7 @@ const Menus = () => {
                         <NavLink
                               to="/about"
                               className={({ isActive, isPending }) =>
-                                    isPending ? "bg-red-400" : isActive ? " text-green-500" : ""
+                                    isPending ? "bg-red-400" : isActive ? " text-amber-500" : ""
                               }
                         >
                               About
@@ -64,7 +64,7 @@ const Menus = () => {
                         <NavLink
                               to="/contact"
                               className={({ isActive, isPending }) =>
-                                    isPending ? "bg-red-400" : isActive ? " text-green-500" : ""
+                                    isPending ? "bg-red-400" : isActive ? " text-amber-500" : ""
                               }
                         >
                               Contact
@@ -76,7 +76,7 @@ const Menus = () => {
                               <NavLink
                                     to="/register"
                                     className={({ isActive, isPending }) =>
-                                          isPending ? "bg-red-400" : isActive ? " text-green-500" : ""
+                                          isPending ? "bg-red-400" : isActive ? " text-amber-500" : ""
                                     }
                               >
                                     Register
@@ -86,7 +86,7 @@ const Menus = () => {
                               <NavLink
                                     to="/login"
                                     className={({ isActive, isPending }) =>
-                                          isPending ? "bg-red-400" : isActive ? " text-green-500" : ""
+                                          isPending ? "bg-red-400" : isActive ? " text-amber-500" : ""
                                     }
                               >
                                     Login
