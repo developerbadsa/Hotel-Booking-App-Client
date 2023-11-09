@@ -5,6 +5,7 @@ import Special_Offers from "./Sections/Special_Offers";
 import TestimonialCarousel from "./Sections/Testimonial_carousel";
 import Subscribe_Newslater from "./Sections/Subscribe_Newslater";
 import { Link } from "react-router-dom";
+import OurGallary from "./Sections/OurGallary";
 
 
 const Home = () => {
@@ -85,6 +86,7 @@ const Home = () => {
                               </div>
                         </div>
                         <Special_Offers></Special_Offers>
+                        <OurGallary></OurGallary>
                         <div className="my-12">
                               <TestimonialCarousel></TestimonialCarousel>
                         </div>

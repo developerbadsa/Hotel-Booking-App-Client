@@ -3,7 +3,7 @@ import Section_introductopn from "../../../Layout/Components/Section_introductop
 
 const Special_Offers = () => {
       return (
-            <div className="py-12 my-24" style={{ backgroundImage: 'url(./public/Images/room2-1024x664.jpeg)' }}>
+            <div className="py-12 my-24" style={{ backgroundImage: 'url(https://i.ibb.co/C5Gysj7/room4-1024x664.jpg)' }}>
                   <div className="text-center my-4 text-white"><Section_introductopn title={'OUR ROOM PRICES'} description={'The Best Prices'} /></div>
                   <div className="px-20 grid lg:grid-cols-3 md:grid justify-center gap-6">
                         {/* Cards */}

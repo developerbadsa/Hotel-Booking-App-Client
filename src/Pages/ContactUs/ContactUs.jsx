@@ -86,7 +86,7 @@ const ContactUs = () => {
                                                       Office
                                                 </h2>
                                                 <h3 className="mb-6 text-lg font-medium dark:text-gray-500">
-                                                      Lorem ipsum dor amet set ispicus dor san amet
+                                                      Room dor amet set ispicus dor san amet
                                                 </h3>
                                                 <p className="text-xl text-gray-500 sm:text-2xl dark:text-gray-400">
                                                       Sukedhara, Kathmandu
