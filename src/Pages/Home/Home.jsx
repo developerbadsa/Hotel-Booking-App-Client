@@ -90,14 +90,10 @@ const Home = () => {
                         <div className="my-12">
                               <TestimonialCarousel></TestimonialCarousel>
                         </div>
-                        <div className="my-8">
+                        <div className="my-12">
                               <Subscribe_Newslater></Subscribe_Newslater>
 
                         </div>
-
-
-
-
 
                   </div>
             </HelmetProvider>

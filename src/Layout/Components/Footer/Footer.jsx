@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
       return (
-            <section className="flex flex-col h-screen lg:justify-end font-poppins">
+            <section className="flex flex-col  lg:justify-end font-poppins">
                   <div className="w-full bg-gray-100 border-t dark:border-gray-900 py-4 dark:bg-gray-900">
                         <div className="max-w-6xl mx-auto">
                               <div className="justify-center flex-1 max-w-6xl px-4 py-2 mx-auto lg:py-0">
@@ -147,7 +147,7 @@ const Footer = () => {
                                           <div className="w-full py-1 lg:w-auto lg:py-0">
                                                 <a
                                                       href="#"
-                                                      className="inline-block w-full px-5 py-4 font-medium leading-4 text-center text-gray-100 bg-amber-700 rounded-md dark:bg-gray-700 dark:text-gray-400 dark:hover:bg-gray-800 hover:bg-blue-600"
+                                                      className="inline-block w-full px-5 py-4 font-medium leading-4 text-center text-gray-100 bg-amber -700 rounded-md dark:bg-gray-700 dark:text-gray-400 dark:hover:bg-gray-800 hover:bg-blue-600"
                                                 >
                                                       Subscribe
                                                 </a>

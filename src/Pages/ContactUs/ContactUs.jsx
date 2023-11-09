@@ -85,9 +85,6 @@ const ContactUs = () => {
                                                 <h2 className="mb-6 text-3xl font-bold md:text-4xl dark:text-gray-300">
                                                       Office
                                                 </h2>
-                                                <h3 className="mb-6 text-lg font-medium dark:text-gray-500">
-                                                      Room dor amet set ispicus dor san amet
-                                                </h3>
                                                 <p className="text-xl text-gray-500 sm:text-2xl dark:text-gray-400">
                                                       Sukedhara, Kathmandu
                                                 </p>
