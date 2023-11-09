@@ -15,7 +15,7 @@ const Rooms = () => {
       const { data: rooms, isPending } = useQuery({
             queryKey: ['rooms'],
             queryFn: async () => {
-                  const data = await fetch("https://hotel-booking-app-server-flame.vercel.app/rooms")
+                  const data = await fetch("http://localhost:5000/rooms")
                   return await data.json();
             }
       })

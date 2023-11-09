@@ -23,10 +23,10 @@ const Home = () => {
                                                             <img
                                                                   src="https://i.ibb.co/Bq6fxCB/room2-1024x664.jpg"
                                                                   alt=""
-                                                                  className="relative z-40 object-cover w-full h-96 lg:rounded-tr-[80px] lg:rounded-bl-[80px] rounded"
+                                                                  className="relative z-0 lg:z-40 object-cover w-full h-96 lg:rounded-tr-[80px] lg:rounded-bl-[80px] rounded"
                                                             />
                                                             <div className="absolute z-10 hidden w-full h-full bg-orange-400 rounded-bl-[80px] rounded -bottom-6 right-6 lg:block"></div>
-                                                            <div className="absolute z-50 text-orange-400 transform -translate-y-1/2 cursor-pointer top-1/2 left-[46%] hover:text-orange-500">
+                                                            <div className="absolute z-45 text-orange-400 transform -translate-y-1/2 cursor-pointer top-1/2 left-[46%] hover:text-orange-500">
                                                                   <svg
                                                                         xmlns="http://www.w3.org/2000/svg"
                                                                         width={16}

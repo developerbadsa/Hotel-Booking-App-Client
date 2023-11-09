@@ -12,8 +12,9 @@ const My_Bookings = () => {
       const [uptStartDate, setStartDate] = useState(null)
       const [uptEndDate, setEndDate] = useState(null)
       const [showModal, setShowModal] = useState(false)
-      const [review, setReview] = useState(null)
-      console.log(review)
+      const [showReviewModal, setShowReviewModal] = useState(false)
+      const [rating, setReview] = useState(null)
+      const [ReviewText, setReviewText] = useState('')
       const {
             data: bookings,
             isLoading,
@@ -22,7 +23,7 @@ const My_Bookings = () => {
             queryKey: ['userBookings'],
             queryFn: async () => {
                   const data = await fetch(
-                        `https://hotel-booking-app-server-flame.vercel.app/my_bookings/?email=${user.email}`,
+                        `http://localhost:5000/my_bookings/?email=${user.email}`,
                         { credentials: 'include' }
                   );
                   return await data.json();
@@ -46,9 +47,6 @@ const My_Bookings = () => {
                                           <h2 className='mb-4 text-xl font-bold md:mb-0 dark:text-gray-400'>
                                                 My Running Booking
                                           </h2>
-                                    </div>
-                                    <div className=''>
-
                                     </div>
 
                                     <div className='p-4 overflow-x-auto'>
@@ -110,7 +108,7 @@ const My_Bookings = () => {
                                                                         if (result.isConfirmed) {
                                                                               axios
                                                                                     .delete(
-                                                                                          `https://hotel-booking-app-server-flame.vercel.app/my_bookings/delete/?deleteBook=${_id}&email=${user.email}&title=${RoomTitle}`
+                                                                                          `http://localhost:5000/my_bookings/delete/?deleteBook=${_id}&email=${user.email}&title=${RoomTitle}`
                                                                                     )
                                                                                     .then(() => {
                                                                                           refetch();
@@ -120,14 +118,30 @@ const My_Bookings = () => {
                                                                   });
                                                             };
 
-                                                            const handleReview = () => {
-                                                                  const reviewdata = { UserEmail: user.email, Rating: review, ReviewText: "review text here" }
+                                                            const handleReview = (RoomTitle) => {
 
-                                                                  axios.post(`https://hotel-booking-app-server-flame.vercel.app/room_review?email=${user.email}`, { reviewdata })
-                                                                  Swal.fire({
-                                                                        title: "Review added",
-                                                                        icon: "success"
-                                                                  });
+                                                                  setShowReviewModal(true)
+
+                                                            }
+                                                            const handleRatingChange = (event) => {
+                                                                  const selectedRating = parseInt(event.target.value);
+                                                                  setReview(selectedRating);
+                                                            };
+                                                            const handleTextChange = (event) => {
+                                                                  setReviewText(event.target.value);
+                                                            };
+
+                                                            const submitReview = () => {
+
+                                                                  const reviewdata = { UserEmail: user.email, Rating: rating, ReviewText: ReviewText }
+                                                                  axios.post(`http://localhost:5000/room_review?title=${RoomTitle}`, { reviewdata })
+                                                                        .then(res => {
+                                                                              Swal.fire({
+                                                                                    title: "Review added",
+                                                                                    icon: "success"
+                                                                              }); console.log(res)
+                                                                        })
+                                                                        .catch(err => console.log(err))
 
                                                             }
 
@@ -214,7 +228,7 @@ const My_Bookings = () => {
                                                                                                 }
                                                                                                 const updatedDateDatas = { updateStartDate: uptStartDate, updateEndDate: uptEndDate, updateBookingTimeDay: BookingTimeDay, RoomTitle }
 
-                                                                                                axios.put(`https://hotel-booking-app-server-flame.vercel.app/my_bookings/update_date?email=${user.email}`, updatedDateDatas)
+                                                                                                axios.put(`http://localhost:5000/my_bookings/update_date?email=${user.email}`, updatedDateDatas)
                                                                                                       .then(() => {
                                                                                                             Swal.fire({
                                                                                                                   title: "Success Changed your Date",
@@ -234,6 +248,58 @@ const My_Bookings = () => {
 
                                                                               </div>
                                                                         </ReactModal>
+                                                                        {/* for modal review */}
+                                                                        <ReactModal
+                                                                              isOpen={showReviewModal}
+                                                                              onRequestClose={() => setShowReviewModal(false)}
+                                                                              shouldCloseOnOverlayClick={true}
+                                                                              shouldCloseOnEsc={true}
+                                                                              ariaHideApp={false}
+                                                                              style={{
+                                                                                    overlay: {
+                                                                                          backgroundColor: 'rgba(2, 0, 0, 0.2)',
+                                                                                          backdropFilter: 'blur(2px)'
+                                                                                    },
+                                                                                    content: {
+                                                                                          width: '450px',
+                                                                                          height: '400px',
+                                                                                          margin: 'auto',
+                                                                                          padding: '35px 5px',
+                                                                                          border: '1px solid black'
+                                                                                    },
+                                                                              }} >
+
+
+                                                                              <div className="w-full flex flex-col justify-center items-center">
+                                                                                    <h5 className='my-3'>Give Review <span className='text-red-400 font-bold' >{RoomTitle}</span></h5>
+
+                                                                                    <div  >
+                                                                                          <div className=' px-4 my-4 form-control flex flex-col gap-2'>
+                                                                                                <select className="select select-bordered w-full max-w-xs" onChange={handleRatingChange}>
+                                                                                                      <option disabled value="">Please select here Rating</option>
+                                                                                                      <option value="1">1</option>
+                                                                                                      <option value="2">2</option>
+                                                                                                      <option value="3">3</option>
+                                                                                                      <option value="4">4</option>
+                                                                                                      <option value="5">5</option>
+                                                                                                </select>
+                                                                                                <textarea className='textarea textarea-bordered h-24' name=" " onChange={handleTextChange} placeholder='Please Give here review Text' rows=""></textarea>
+
+                                                                                          </div>
+                                                                                    </div>
+                                                                                    <div className=' mt-10 flex gap-4'>
+
+                                                                                          <button onClick={submitReview}>Submit Review</button>
+                                                                                          <button className="btn" onClick={() => setShowReviewModal(false)}>
+                                                                                                Close
+                                                                                          </button>
+                                                                                    </div>
+
+                                                                              </div>
+                                                                        </ReactModal>
+
+
+                                                                        {/* table rows */}
                                                                         <td className='flex items-center px-6 py-5 font-medium'>
                                                                               <p className=''>{RoomTitle}</p>
                                                                         </td>
@@ -245,21 +311,18 @@ const My_Bookings = () => {
                                                                         </td>
                                                                         <td className='px-6 py-5 font-medium'>{endDate}</td>
                                                                         <td className='flex items-center px-6 py-5 gap-4 '>
+
+
                                                                               {/* post review */}
 
                                                                               <a className='border'>
-                                                                                    <input type="number" defaultValue={5} className='border text-blackd' onChange={(e) => setReview(e.target.value)} min="1" max="5" />
-                                                                                    <button onClick={handleReview}>  Add Review
-                                                                                    </button>
+
+                                                                                    <button onClick={() => handleReview(RoomTitle)}>  Add Review  </button>
                                                                               </a>
                                                                               {/* Handle Update */}
                                                                               <a
                                                                                     onClick={() => {
                                                                                           setShowModal(true)
-                                                                                          const data = () => {
-                                                                                                console.log('data comming soon')
-                                                                                          }
-
                                                                                     }}
                                                                                     className='font-medium text-blue-600 hover:text-blue-500 dark:hover:text-gray-300 dark:text-blue-300'>
                                                                                     <svg

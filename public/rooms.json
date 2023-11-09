@@ -13,18 +13,7 @@
           "https://i.ibb.co/6m2py3P/ancient-chinise-room.jpg"
         ],
         "SpecialOffers": "20% off for a week-long stay",
-        "Reviews": [
-          {
-            "UserID": 101,
-            "Rating": 4.5,
-            "ReviewText": "A fantastic room with a beautiful view. Highly recommended!"
-          },
-          {
-            "UserID": 102,
-            "Rating": 5.0,
-            "ReviewText": "This room exceeded my expectations. The price is a steal for what you get!"
-          }
-        ]
+        "Reviews": []
       },
       {
         "RoomID": 2,
@@ -39,7 +28,8 @@
           "https://i.ibb.co/Pr5CNBJ/spa-salon-with-beach-view.jpg",
           "https://i.ibb.co/W33xnc1/swimming-pool.jpg"
         ],
-        "SpecialOffers": "Complimentary spa treatment for a 3-night stay"
+        "SpecialOffers": "Complimentary spa treatment for a 3-night stay",
+        "Reviews": []
       },
       {
         "RoomID": 3,
@@ -54,7 +44,8 @@
           "https://i.ibb.co/Fm2q8hB/vacation-couple-on-beach-near-260nw-2183226477.jpg",
           "https://i.ibb.co/SKYBX9Q/young-woman-traveler-opening-curtains-260nw-2159847275.jpg"
         ],
-        "SpecialOffers": "Discount on your next visit for a 5-night stay"
+        "SpecialOffers": "Discount on your next visit for a 5-night stay",
+        "Reviews": []
       },
       {
             "RoomID": 4,
@@ -69,7 +60,8 @@
               "https://i.ibb.co/VQSDPxp/blog2.jpg",
               "https://i.ibb.co/K7PkvJD/parallax10.jpg"
             ],
-            "SpecialOffers": "Complimentary breakfast and water sports activities included"
+            "SpecialOffers": "Complimentary breakfast and water sports activities included",
+            "Reviews": []
           },
           {
             "RoomID": 5,
@@ -84,7 +76,8 @@
               "https://i.ibb.co/C5Gysj7/room4-1024x664.jpg",
               "https://i.ibb.co/BsWg8yj/room6-1024x664.jpg"
             ],
-            "SpecialOffers": "Free guided mountain tour for a 4-night stay"
+            "SpecialOffers": "Free guided mountain tour for a 4-night stay",
+            "Reviews": []
             
           },
           {
@@ -101,18 +94,7 @@
               "https://i.ibb.co/RY203Dn/download-4.jpg"
             ],
             "SpecialOffers": "Complimentary rooftop dinner and wine tasting included",
-            "Reviews": [
-              {
-                "UserID": 401,
-                "Rating": 4.2,
-                "ReviewText": "A fantastic room with a beautiful view. Highly recommended!"
-              },
-              {
-                "UserID": 102,
-                "Rating": 5.0,
-                "ReviewText": "This room exceeded my expectations. The price is a steal for what you get!"
-              }
-            ]
+            "Reviews": []
           },
           {
             "RoomID": 7,
@@ -128,13 +110,7 @@
               "https://i.ibb.co/SKYBX9Q/young-woman-traveler-opening-curtains-260nw-2159847275.jpg"
             ],
             "SpecialOffers": "Complimentary breakfast for a 2-night stay",
-            "Reviews": [
-              {
-                "UserID": 107,
-                "Rating": 5.0,
-                "ReviewText": "This room exceeded my expectations. The price is a steal for what you get!"
-              }
-            ]
+            "Reviews": []
           },
           {
             "RoomID": 8,
@@ -150,13 +126,7 @@
               "https://i.ibb.co/6m2py3P/ancient-chinise-room.jpg"
             ],
             "SpecialOffers": "Free boat rental for a 3-night stay",
-            "Reviews": [
-              {
-                "UserID": 109,
-                "Rating": 4.0,
-                "ReviewText": "This room exceeded my expectations. The price is a steal for what you get!"
-              }
-            ]
+            "Reviews": []
           },
           {
             "RoomID": 9,
@@ -236,13 +206,7 @@
               "https://i.ibb.co/BsWg8yj/room6-1024x664.jpg"
             ],
             "SpecialOffers": "Free canoe rental for a 3-night stay",
-            "Reviews": [
-              {
-                "UserID": 110,
-                "Rating": 5.0,
-                "ReviewText": "This room exceeded my expectations. The price is a steal for what you get!"
-              }
-            ]
+            "Reviews": []
           },
           {
             "RoomID": 14,
@@ -290,11 +254,7 @@
               "https://i.ibb.co/BsWg8yj/room6-1024x664.jpg"
             ],
             "SpecialOffers": "Free ski rental and hot cocoa for a 3-night stay",
-            "Reviews": [{
-              "UserID": 112,
-              "Rating": 5.0,
-              "ReviewText": "This room exceeded my expectations. The price is a steal for what you get!"
-            }]
+            "Reviews": []
           },
           {
             "RoomID": 17,
@@ -358,13 +318,7 @@
               "https://i.ibb.co/K7PkvJD/parallax10.jpg"
             ],
             "SpecialOffers": "Complimentary countryside tour and farm-to-table dining included",
-            "Reviews": [
-              {
-                "UserID": 115,
-                "Rating": 3.0,
-                "ReviewText": "This room exceeded my expectations. The price is a steal for what you get!"
-              }
-            ]
+            "Reviews": []
           }
 
     ]
