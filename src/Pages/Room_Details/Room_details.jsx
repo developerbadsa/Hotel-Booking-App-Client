@@ -264,7 +264,7 @@ const Room_details = () => {
                                                       className="w-full px-4 disabled:bg-red-300 disabled:text-slate-500 py-3 text-center text-white hover:text-white bg-amber-800 border border-transparent dark:border-gray-700 hover:border-amber-800  hover:bg-amber-800 dark:text-gray-400 dark:bg-gray-700 dark:hover:bg-gray-900 rounded-xl text-xl font-bold"
                                                 
                                               disabled={!user} >
-                                                      <Link to='/login'>Buy now {price > 0 && price}</Link>
+                                                      <Link >Buy now {price > 0 && price}</Link>
                                                 </button>
 
                                           </form>

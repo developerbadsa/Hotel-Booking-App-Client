@@ -143,6 +143,8 @@ const My_Bookings = () => {
                                                                         })
                                                                         .catch(err => console.log(err))
 
+                                                                        console.log(reviewdata)
+
                                                             }
 
                                                             return (
@@ -271,7 +273,7 @@ const My_Bookings = () => {
 
 
                                                                               <div className="w-full flex flex-col justify-center items-center">
-                                                                                    <h5 className='my-3'>Give Review <span className='text-red-400 font-bold' >{RoomTitle}</span></h5>
+                                                                                    <h5 className='my-3'>Give Review</h5>
 
                                                                                     <div  >
                                                                                           <div className=' px-4 my-4 form-control flex flex-col gap-2'>
