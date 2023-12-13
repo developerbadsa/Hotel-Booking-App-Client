@@ -6,6 +6,7 @@ import TestimonialCarousel from "./Sections/Testimonial_carousel";
 import Subscribe_Newslater from "./Sections/Subscribe_Newslater";
 import { Link } from "react-router-dom";
 import OurGallary from "./Sections/OurGallary";
+import FAQ from "./Sections/Faq";
 
 
 const Home = () => {
@@ -94,6 +95,7 @@ const Home = () => {
                               <Subscribe_Newslater></Subscribe_Newslater>
 
                         </div>
+                        <FAQ></FAQ>
 
                   </div>
             </HelmetProvider>
