@@ -15,7 +15,7 @@ const Rooms = () => {
       const { data: rooms, isPending } = useQuery({
             queryKey: ['rooms'],
             queryFn: async () => {
-                  const data = await fetch("hotel-booking-app-server-wi7a.vercel.app/rooms")
+                  const data = await fetch("https://hotel-booking-app-server-wi7a.vercel.app/rooms")
                   return await data.json();
             }
       })
@@ -45,7 +45,7 @@ const Rooms = () => {
                         <title>Rooms | Hotel Booking</title>
                         <link rel="icon" type="image/png" href="https://i.ibb.co/KV4XPrq/study-room.png" />
                   </Helmet>
-                  <h3 className="text-center my-4 text-2xl font-extrabold">Here All Available Rooms: {RoomViewer.length}</h3>
+                  <h3 className="text-center my-4 text-2xl font-extrabold">Here All Available Rooms: {RoomViewer?.length}</h3>
                   <div className="text-center mb-8 mx-auto flex flex-col justify-center">
                         <h4 className="font-bold my-5">Filter Your Product by Price</h4>
                         <form className="flex items-center justify-center space-x-4">
@@ -75,7 +75,7 @@ const Rooms = () => {
                   </div>
                   <div className="grid ml-16 lg:ml-0 grid-cols-1 justify-center md:grid-cols-4 gap-8">
                         {
-                              RoomViewer.map((room => <RoomCard key={room._id} room={room}></RoomCard>))
+                              RoomViewer?.map((room => <RoomCard key={room._id} room={room}></RoomCard>))
                         }
                   </div>
 
