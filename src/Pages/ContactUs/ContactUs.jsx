@@ -1,7 +1,68 @@
-import React from 'react';
+import * as emailjs from "emailjs-com";
+import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
 
 const ContactUs = () => {
+
+      const [formData, setFormdata] = useState({
+            email: "",
+            name: "",
+            message: "",
+            loading: false,
+            show: false,
+            alertmessage: "",
+            variant: "",
+      });
+      const handleSubmit = (e) => {
+            e.preventDefault();
+            setFormdata({ loading: true });
+
+            const templateParams = {
+                  from_name: formData.email,
+                  user_name: formData.name,
+                  to_name: formData.name,
+                  message: formData.message,
+            };
+
+            console.log(templateParams)
+
+            emailjs
+                  .send(
+                        "service_thoyyx6", // Replace with your actual service ID
+                        "template_psggg4b", // Replace with your actual template ID
+                        templateParams,
+                        import.meta.env.VITE_EMAILJS_TEMPLATE_ID // Replace with your actual user ID
+                  )
+                  .then(
+                        (result) => {
+                              console.log(result.text);
+                              setFormdata({
+                                    loading: false,
+                                    alertmessage: "SUCCESS! Thank you for your message",
+                                    variant: "bg-orange-500",
+                                    show: true,
+                              });
+                        },
+                        (error) => {
+                              console.log(error.text);
+                              setFormdata({
+                                    alertmessage: `Failed to send! ${error.text}`,
+                                    variant: "bg-red-500",
+                                    show: true,
+                              });
+                              document.getElementsByClassName("co_alert")[0].scrollIntoView();
+                        }
+                  );
+      };
+
+      const handleChange = (e) => {
+            setFormdata({
+                  ...formData,
+                  [e.target.name]: e.target.value,
+            });
+      };
+
+
       return (
             <div>
                   <Helmet>
@@ -60,10 +121,10 @@ const ContactUs = () => {
                                                       Phone
                                                 </h2>
                                                 <h3 className="mb-6 text-lg font-medium dark:text-gray-500">
-                                                     
+
                                                 </h3>
                                                 <p className="text-xl text-gray-500 sm:text-2xl dark:text-gray-400">
-                                                      +977-014451967
+                                                      4451967
                                                 </p>
                                           </div>
                                     </div>
@@ -86,92 +147,62 @@ const ContactUs = () => {
                                                       Office
                                                 </h2>
                                                 <p className="text-xl text-gray-500 sm:text-2xl dark:text-gray-400">
-                                                      Sukedhara, Kathmandu
+                                                      Bangladesh
                                                 </p>
                                           </div>
                                     </div>
                               </div>
                               <div className="px-3 py-6 ">
-                                    <form
-                                          action=""
-                                          className="py-6 rounded shadow dark:bg-gray-900 bg-gray-50"
+                                    <div
+                                          className={`rounded-lg my-4 p-4 ${formData.show ? "block" : "hidden"
+                                                } ${formData.variant}`}
                                     >
-                                          <div className="flex flex-wrap ">
-                                                <div className="w-full px-3 md:w-1/2 md:mb-4">
-                                                      <label
-                                                            htmlFor="firstname"
-                                                            className="block mb-3 font-bold text-gray-700 uppercase dark:text-gray-400"
-                                                      >
-                                                            First Name
-                                                      </label>
-                                                      <input
-                                                            type="text"
-                                                            placeholder="first name"
-                                                            required=""
-                                                            className="block w-full px-4 py-3 mb-3 leading-tight text-gray-700 bg-gray-100 border rounded lg:mb-0 dark:text-gray-400 dark:border-gray-800 dark:bg-gray-800 "
-                                                      />
-                                                </div>
-                                                <div className="w-full px-3 md:w-1/2 md:mb-4">
-                                                      <label
-                                                            htmlFor="firstname"
-                                                            className="block mb-3 font-bold text-gray-700 uppercase dark:text-gray-400"
-                                                      >
-                                                            Last Name
-                                                      </label>
-                                                      <input
-                                                            type="text"
-                                                            placeholder="last name"
-                                                            required=""
-                                                            className="block w-full px-4 py-3 mb-3 leading-tight text-gray-700 bg-gray-100 border rounded dark:placeholder-gray-500 lg:mb-0 dark:text-gray-400 dark:border-gray-800 dark:bg-gray-800 "
-                                                      />
-                                                </div>
-                                                <div className="w-full px-3 md:w-1/2 md:mb-0">
-                                                      <label
-                                                            htmlFor="firstname"
-                                                            className="block mb-3 font-bold text-gray-700 uppercase dark:text-gray-400"
-                                                      >
-                                                            Email
-                                                      </label>
-                                                      <input
-                                                            type="email"
-                                                            placeholder="abc@gmail.com"
-                                                            required=""
-                                                            className="block w-full px-4 py-3 mb-3 leading-tight text-gray-700 bg-gray-100 border rounded dark:placeholder-gray-500 dark:text-gray-400 dark:border-gray-800 dark:bg-gray-800 "
-                                                      />
-                                                </div>
-                                                <div className="w-full px-3 md:w-1/2 md:mb-0">
-                                                      <label
-                                                            htmlFor="firstname"
-                                                            className="block mb-3 font-bold text-gray-700 uppercase dark:text-gray-400"
-                                                      >
-                                                            Subject
-                                                      </label>
-                                                      <input
-                                                            type="text"
-                                                            placeholder="I'm asking information for..."
-                                                            required=""
-                                                            className="block w-full px-4 py-3 mb-3 leading-tight text-gray-700 bg-gray-100 border rounded dark:placeholder-gray-500 dark:text-gray-400 dark:border-gray-800 dark:bg-gray-800 "
-                                                      />
-                                                </div>
-                                          </div>
-                                          <div className="px-3 mb-6">
-                                                <label
-                                                      htmlFor="firstname"
-                                                      className="block mb-3 font-bold text-gray-700 uppercase dark:text-gray-400"
-                                                >
-                                                      Message
-                                                </label>
-                                                <textarea
-                                                      type="message"
-                                                      placeholder="Describe your problem"
-                                                      required=""
-                                                      className="block w-full px-4 py-10 leading-tight text-gray-700 bg-gray-100 rounded dark:placeholder-gray-500 dark:text-gray-400 dark:border-gray-800 dark:bg-gray-800 "
-                                                      defaultValue={""}
+                                          <p className="my-0">{formData.alertmessage}</p>
+                                    </div>
+                                    <form onSubmit={handleSubmit} className="w-full">
+                                          <div className="mb-4">
+                                                <input
+                                                      className="w-full p-2 border border-gray-300 rounded"
+                                                      id="name"
+                                                      name="name"
+                                                      placeholder="Name"
+                                                      value={formData.name || ""}
+                                                      type="text"
+                                                      required
+                                                      onChange={handleChange}
                                                 />
                                           </div>
-                                          <div className="px-6">
-                                                <button className="px-4 py-2 font-medium text-gray-100 bg-yellow-600 rounded shadow hover:bg-yellow-700 dark:bg-yellow-500 dark:hover:bg-yellow-700">
-                                                      Send Message
+                                          <div className="mb-4">
+                                                <input
+                                                      className="w-full p-2 border border-gray-300 rounded"
+                                                      id="email"
+                                                      name="email"
+                                                      placeholder="Email"
+                                                      type="email"
+                                                      value={formData.email || ""}
+                                                      required
+                                                      onChange={handleChange}
+                                                />
+                                          </div>
+                                          <textarea
+                                                className="w-full p-2 border border-gray-300 rounded"
+                                                id="message"
+                                                name="message"
+                                                placeholder="Message"
+                                                rows="5"
+                                                value={formData.message}
+                                                onChange={handleChange}
+                                                required
+                                          ></textarea>
+                                          <br />
+                                          <div className="mb-4">
+                                                <button
+                                                      className={`px-4 py-2 rounded text-white ${formData.loading ? "bg-gray-500" : "bg-blue-500"
+                                                            }`}
+                                                      type="submit"
+                                                      disabled={formData.loading}
+                                                >
+                                                      {formData.loading ? "Sending..." : "Send"}
                                                 </button>
                                           </div>
                                     </form>

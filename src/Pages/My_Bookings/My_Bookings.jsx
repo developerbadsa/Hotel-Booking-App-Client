@@ -144,7 +144,7 @@ const My_Bookings = () => {
                                                                         })
                                                                         .catch(err => console.log(err))
 
-                                                                        console.log(reviewdata)
+                                                                  console.log(reviewdata)
 
                                                             }
 
