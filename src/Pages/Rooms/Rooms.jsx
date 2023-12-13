@@ -23,7 +23,6 @@ const Rooms = () => {
       if (isPending) {
             return <Loading></Loading>
       }
-
       const handlePriceFilter = (e) => {
             e.preventDefault()
             const min = parseFloat(minPrice);
