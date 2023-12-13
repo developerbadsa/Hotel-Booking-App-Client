@@ -23,7 +23,7 @@ const My_Bookings = () => {
             queryKey: ['userBookings'],
             queryFn: async () => {
                   const data = await fetch(
-                        `http://localhost:5000/my_bookings/?email=${user.email}`,
+                        `hotel-booking-app-server-wi7a.vercel.app/my_bookings/?email=${user.email}`,
                         { credentials: 'include' }
                   );
                   return await data.json();
@@ -108,7 +108,7 @@ const My_Bookings = () => {
                                                                         if (result.isConfirmed) {
                                                                               axios
                                                                                     .delete(
-                                                                                          `http://localhost:5000/my_bookings/delete/?deleteBook=${_id}&email=${user.email}&title=${RoomTitle}`
+                                                                                          `hotel-booking-app-server-wi7a.vercel.app/my_bookings/delete/?deleteBook=${_id}&email=${user.email}&title=${RoomTitle}`
                                                                                     )
                                                                                     .then(() => {
                                                                                           refetch();
@@ -134,7 +134,7 @@ const My_Bookings = () => {
                                                             const submitReview = () => {
 
                                                                   const reviewdata = { UserEmail: user.email, Rating: rating, ReviewText: ReviewText }
-                                                                  axios.post(`http://localhost:5000/room_review?title=${RoomTitle}`, { reviewdata })
+                                                                  axios.post(`hotel-booking-app-server-wi7a.vercel.app/room_review?title=${RoomTitle}`, { reviewdata })
                                                                         .then(res => {
                                                                               Swal.fire({
                                                                                     title: "Review added",
@@ -231,7 +231,7 @@ const My_Bookings = () => {
                                                                                                 }
                                                                                                 const updatedDateDatas = { updateStartDate: uptStartDate, updateEndDate: uptEndDate, updateBookingTimeDay: BookingTimeDay, RoomTitle }
 
-                                                                                                axios.put(`http://localhost:5000/my_bookings/update_date?email=${user.email}`, updatedDateDatas)
+                                                                                                axios.put(`hotel-booking-app-server-wi7a.vercel.app/my_bookings/update_date?email=${user.email}`, updatedDateDatas)
                                                                                                       .then(() => {
                                                                                                             Swal.fire({
                                                                                                                   title: "Success Changed your Date",

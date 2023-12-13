@@ -15,13 +15,13 @@ const AuthProvider = ({ children }) => {
 
                   if (user) {
                         axios
-                          .post(`http://localhost:5000/jwt/?email=${user.email}`, user?.email, {
+                          .post(`hotel-booking-app-server-wi7a.vercel.app/jwt/?email=${user.email}`, user?.email, {
                             withCredentials: true, 
                           })
                           .then((res) => console.log(res))
                           .catch((error) => console.error(error));
                       }else{
-                        axios.post('http://localhost:5000/logout', user?.email, {
+                        axios.post('hotel-booking-app-server-wi7a.vercel.app/logout', user?.email, {
                               withCredentials: true, 
                             })
                         .then(res=>console.log(res))

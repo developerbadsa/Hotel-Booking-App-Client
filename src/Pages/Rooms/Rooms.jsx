@@ -15,7 +15,7 @@ const Rooms = () => {
       const { data: rooms, isPending } = useQuery({
             queryKey: ['rooms'],
             queryFn: async () => {
-                  const data = await fetch("http://localhost:5000/rooms")
+                  const data = await fetch("hotel-booking-app-server-wi7a.vercel.app/rooms")
                   return await data.json();
             }
       })
