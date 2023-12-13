@@ -2,7 +2,7 @@
 
 Welcome to our Hotel Booking Web Application, designed for an elevated reservation experience. Explore the following features:
 
-**Live Link:** [Hotel Booking Web App](https://venerable-conkies-4e8159.netlify.app/)
+**Live Link:** [Hotel Booking Web App](https://hotel-b8387.web.app/)
 **Hotel Booking Server:** [Hotel Booking Web App server](https://github.com/developerbadsa/Hotel-Booking-App-Server.git)
 
 

@@ -1,19 +1,25 @@
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
+import { initializeApp, getApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyA7bSWFKzRm1DyITvSRV2z5gziTvpL2b4s",
-  authDomain: "technologyelectronics-f094b.firebaseapp.com",
-  projectId: "technologyelectronics-f094b",
-  storageBucket: "technologyelectronics-f094b.appspot.com",
-  messagingSenderId: "733052442195",
-  appId: "1:733052442195:web:f84e2201fc0ff4937358a6"
-    };
+  apiKey: "AIzaSyAUBhlgh23BO9pivuoj2iQZ7dp0L4aoyYU",
+  authDomain: "hotel-b8387.firebaseapp.com",
+  projectId: "hotel-b8387",
+  storageBucket: "hotel-b8387.appspot.com",
+  messagingSenderId: "1056445092084",
+  appId: "1:1056445092084:web:413afba076c2052d908ea1"
+};
+
+// Check if Firebase app with the name '[DEFAULT]' already exists
+let app;
+try {
+  app = getApp('[DEFAULT]');
+} catch (e) {
+  // If the app does not exist, initialize it
+  app = initializeApp(firebaseConfig);
+}
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
