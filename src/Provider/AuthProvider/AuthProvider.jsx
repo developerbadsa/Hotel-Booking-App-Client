@@ -4,7 +4,6 @@ import { auth } from "../../Configs/Firebase.config/Firebase.config";
 import axios from "axios";
 
 export const userContext = createContext(null)
-
 const AuthProvider = ({ children }) => {
       const provider = new GoogleAuthProvider();
       const [user, setUser] = useState(null)
@@ -35,7 +34,7 @@ const AuthProvider = ({ children }) => {
 
       }, [])
 
-      // create user 
+      // create users
       const createUser = (email, password) => {
             setLoading(true)
             return createUserWithEmailAndPassword(auth, email, password)
